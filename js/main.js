@@ -1,4 +1,4 @@
-alert("test");
+//alert("test");
 let myImage = document.querySelector('#pekoImage');
 
 myImage.onclick = function () {
@@ -34,7 +34,8 @@ camera.position.set(2, 4, 5);
 
 // 選定渲染器
 const renderer = new THREE.WebGLRenderer({
-    alpha: true
+    alpha: true,
+    antialias: true
 });
 //{antialias: true, alpha: true}
 // 初始渲染畫面尺寸
