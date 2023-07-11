@@ -13,6 +13,7 @@
         gtag('js', new Date());
 
         gtag('config', 'G-ERZYSBJKEX');
+
     </script>
     <!-- End Google tag (gtag.js) -->
 
@@ -21,6 +22,18 @@
     <title>Yode's Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!--    Three.js CDN-->
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+        "imports": {
+            "three": "https://unpkg.com/three@v0.149.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@v0.149.0/examples/jsm/"
+        }
+    }
+    </script>
+
 </head>
 
 <style>
@@ -32,16 +45,22 @@
         text-decoration: underline;
 
     }
+
 </style>
 
 <body>
     <h1>Yode的作品集網站</h1>
 
     <hr />
-    <div class="d-flex justify-content-center">
-        <h1 class="justify-content-center" style="text-align: left; color: red; font-weight: bold; background-color: #FFBBCC; height:400px; width: 80%; display: flex; margin: 50px;border: 2px solid black; padding:40px; align-items:center;">現在這ㄍ網頁一團亂，<br>因為還在學習如何製作，<br>亂測試一些效果ㄏㄏ</h1>
+    <div class="container">
+        <div class="row justify-content-center m-3">
+            <div class="col-10 d-flex container3D"></div>
+        </div>
+        <div class="row justify-content-center">
+            <h1 class="announcement">現在這ㄍ網頁一團亂，因為還在學習如何製作，亂測試一些效果ㄏㄏ</h1>
+        </div>
     </div>
-
+   
     <h2>Hi ~ 歡迎光臨 ~ ~ (つ´ω`)つ</h2>
     <h2>這個網站還在建設中</h2>
     <br />
@@ -66,11 +85,15 @@
                 <img style="width:100%" src="img/rogAllyRealistic.jpg" alt="rogAllyRealistic">
             </div>
         </div>
+
     </div>
 
-    <p>2023/7/7</p>
+
+    <p>2023/7/12</p>
+
+    <script src="js/main.js" type="module"></script>
 
 
-    <script src="js/main.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-</body></html>
+</body>
+
+</html>
