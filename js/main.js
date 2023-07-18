@@ -12,8 +12,12 @@ myImage.onclick = function () {
 
 
 import * as THREE from 'three';
-import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
-import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {
+    OrbitControls
+} from 'three/addons/controls/OrbitControls.js';
+import {
+    GLTFLoader
+} from 'three/addons/loaders/GLTFLoader.js';
 
 
 let container = document.querySelector('.container3D');
@@ -37,6 +41,11 @@ const renderer = new THREE.WebGLRenderer({
     alpha: true,
     antialias: true
 });
+
+// enabling shadows
+renderer.shadowMap.enabled = true;
+//renderer.shadowMap.type = THREE.BasicShadowMap;
+
 //{antialias: true, alpha: true}
 // 初始渲染畫面尺寸
 renderer.setSize(container.clientWidth, container.clientHeight);
@@ -50,13 +59,15 @@ controls.update();
 
 // 產生平面物體
 const planeGeometry = new THREE.PlaneGeometry(6, 6);
-const planeMaterial = new THREE.MeshBasicMaterial({
+const planeMaterial = new THREE.MeshPhongMaterial({
     color: '#6D6D6D',
     // 雙面著色
     side: THREE.DoubleSide,
 });
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 plane.rotation.x = Math.PI / 2;
+plane.castShadow = false;
+plane.receiveShadow = true;
 
 // 設定平面物體在場景的位置
 plane.position.set(0, 0, 0);
@@ -80,15 +91,22 @@ loader.load('./public/EmuJr.gltf',
     function (gltf) {
         //If the file is loaded, add it to the scene
         emu = gltf.scene;
+        emu.traverse(function (node) {
+            if (node.isMesh) {
+                node.castShadow = true;
+                //                node.receiveShadow = true;
+            }
+        })
+
         scene.add(emu);
-        
-    
+
+
         let fileAnimations = gltf.animations;
         mixer = new THREE.AnimationMixer(emu);
         let animationName = THREE.AnimationClip.findByName(fileAnimations, 'ArmatureAction')
         emuRun = mixer.clipAction(animationName);
         emuRun.play();
-    
+
     },
     function (xhr) {
         //While it is loading, log the progress
@@ -101,11 +119,12 @@ loader.load('./public/EmuJr.gltf',
 );
 
 // 建立光源
-let pointLight = new THREE.PointLight(0xffffff, 1);
-pointLight.position.set(5, 10, 10);
-scene.add(pointLight);
+let directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(5, 10, 10);
+directionalLight.castShadow = true;
+scene.add(directionalLight);
 
-const ambientLight = new THREE.AmbientLight(0x333333, 2);
+const ambientLight = new THREE.AmbientLight(0x333333, 3);
 scene.add(ambientLight);
 
 // 設定動畫
@@ -127,11 +146,11 @@ function animate() {
 animate();
 
 // 配合視窗大小自動更新
-function onWindowResize(){
-    camera.aspect = container.clientWidth/container.clientHeight;
+function onWindowResize() {
+    camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
-    
+
     renderer.setSize(container.clientWidth, container.clientHeight);
 }
 
-window.addEventListener('resize',onWindowResize);
+window.addEventListener('resize', onWindowResize);
