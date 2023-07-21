@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) 連結Google Analytics-->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERZYSBJKEX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <!--    Three.js CDN-->
+    <!--Three.js CDN-->
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <script type="importmap">
         {
@@ -32,6 +32,7 @@
         }
     }
     </script>
+    <!--/Three.js CDN-->
 
 </head>
 
@@ -47,13 +48,41 @@
 </style>
 
 <body>
-    <h1>Yode的作品集網站</h1>
+    <h1 style="margin:10px;">Yode的作品集網站</h1>
 
     <hr />
+
+    <!--分頁連結-->
+    <!--Bootstrap Navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" alt="" style="max-height: 50px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    <a class="nav-link" href="./page1.html">分頁1</a>
+                    <a class="nav-link" href="/page2.html">分頁2</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--/Bootstrap Navbar-->
+
+
+
+
+    <!--/分頁連結-->
+
     <div class="container">
+        <!--小鴯鶓3D視窗-->
         <div class="row justify-content-center m-3">
             <div class="col-10 d-flex container3D"></div>
         </div>
+        <!--/小鴯鶓3D視窗-->
+
         <div class="row justify-content-center">
             <h1 class="announcement">現在這ㄍ網頁一團亂，因為還在學習如何製作，亂測試一些效果ㄏㄏ</h1>
         </div>
@@ -86,6 +115,7 @@
 
     </div>
     <br />
+    <!--Figma prototype embeded-->
     <div class="container">
         <div class="row">
             <hr />
@@ -100,18 +130,23 @@
                 <p>Project 1: <span style="font-weight:bold">Taipei Dome App</span></p>
                 <iframe class="figma-embed figma-embed-mobile" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FERnM5xsWkBFr79yrpAx5BT%2FGoogle-UX-design---Assignment-(hi-fi)_working%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D14-5%26viewport%3D676%252C449%252C0.13%26t%3DMAglP2EbFm3VWLTF-1%26scaling%3Dscale-down%26starting-point-node-id%3D14%253A5%26mode%3Ddesign" allowfullscreen></iframe>
             </div>
-            <br>
         </div>
+        <br><br>
         <div class="row justify-content-center">
             <div class="col-11">
+
                 <p>Project 2: <span style="font-weight:bold">SkaterBoi Website</span></p>
                 <iframe class="figma-embed" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F9FXA0qhRVi2Yd54DmX8xbl%2FProject-2-(RWD)%3Fpage-id%3D140%253A208%26type%3Ddesign%26node-id%3D140-1636%26viewport%3D-2764%252C-6119%252C0.94%26t%3DYgF5nlFPWT3fu0pg-1%26scaling%3Dscale-down%26starting-point-node-id%3D140%253A1636%26mode%3Ddesign" allowfullscreen></iframe>
             </div>
         </div>
     </div>
-    <br>
-    <p>2023/7/18</p>
+    <!--/Figma prototype embeded-->
 
+    <br><br>
+    <hr>
+    <p style="margin: 10px;">2023/7/18</p>
+
+    <script src="js/bootstrap.bundle.js"></script>
     <script src="js/main.js" type="module"></script>
 
 
