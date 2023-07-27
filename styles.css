@@ -2,13 +2,13 @@
     color: red;
     font-weight: bold;
     background-color: #FFBBCC;
-    height:auto; 
-    width: 80%; 
-    display: flex; 
+    height: auto;
+    width: 80%;
+    display: flex;
     margin: 50px;
-    border: 2px solid black; 
-    padding:20px; 
-    align-items:center;
+    border: 2px solid black;
+    padding: 20px;
+    align-items: center;
 }
 
 
@@ -27,26 +27,36 @@ h2 {
 }
 
 
-.container3D, canvas {
+.container3D,
+canvas {
     width: 100vw;
     height: 100vh;
     max-height: 500px;
-/*    border: 1px solid black;*/
+    /*    border: 1px solid black;*/
     background-color: rgba(235, 235, 235, 0.22);
 }
 
-.figma-embed{
+.figma-embed {
     display: flex;
     width: 100%;
     height: 800px;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.figma-embed-mobile{
+.figma-embed-mobile {
     width: 400px;
-    margin:auto;
+    margin: auto;
 }
 
-.logo{
-    height:100vh;
+/*媒體查詢*/
+@media screen and (max-width: 420px) {
+    .figma-embed-mobile {
+        width: 100%;
+        margin: auto;
+    }
+}
+
+.logo {
+    height: 100vh;
+    background-color: rgba(206, 249, 255, 0.52);
 }
