@@ -3,10 +3,51 @@ const highestSpeedElement = document.getElementById('highestSpeed');
 const resetButton = document.getElementById('resetButton');
 const cube2 = document.getElementById('cube2');
 let previousTimestamp = null;
-//let previousTouchY = null;
 let scrollSpeed = 0;
 let highestSpeed = 0;
 
+function calculateScrollSpeed(event) {
+    if (event.type === 'touchmove') {
+        const currentTouchTimestamp = performance.now();
+        if (previousTimestamp !== null) {
+            const deltaTime = currentTouchTimestamp - previousTimestamp;
+            const touch = event.touches[0];
+            const scrollDistance = Math.sqrt(touch.clientX ** 2 + touch.clientY ** 2); // You can adjust this to calculate the actual scroll distance based on touch position.
+            scrollSpeed = Math.round(scrollDistance / deltaTime * 100) / 100;
+            speedElement.innerText = touchScrollSpeed + ' pixels/ms';
+
+            if (scrollSpeed > highestSpeed) {
+                highestSpeed = scrollSpeed;
+                highestSpeedElement.innerText = highestSpeed + ' pixels/ms';
+            }
+
+            updateAnimationDuration();
+        }
+        previousTimestamp = currentTouchTimestamp;
+    } else if (event.type === 'wheel') {
+        if (previousTimestamp !== null) {
+            const currentTimestamp = performance.now();
+            const deltaTime = currentTimestamp - previousTimestamp;
+
+            // 檢查deltaTime是否太小，避免出現"infinity"
+            if (deltaTime > 5) {
+                const scrollDistance = Math.abs(event.deltaY);
+                scrollSpeed = Math.round(scrollDistance / deltaTime * 100) / 100;
+                speedElement.innerText = scrollSpeed + ' pixels/ms';
+
+                if (scrollSpeed > highestSpeed) {
+                    highestSpeed = scrollSpeed;
+                    highestSpeedElement.innerText = highestSpeed + ' pixels/ms';
+                }
+            }
+            updateAnimationDuration();
+        }
+        previousTimestamp = performance.now();
+    }
+}
+
+
+/*
 function calculateScrollSpeed(event) {
     if (previousTimestamp !== null) {
         const currentTimestamp = performance.now();
@@ -27,28 +68,8 @@ function calculateScrollSpeed(event) {
     }
     previousTimestamp = performance.now();
 }
+*/
 
-//function calculateTouchSpeed(event) {
-//    if (previousTimestamp !== null) {
-//        const currentTimestamp = performance.now();
-//        const deltaTime = currentTimestamp - previousTimestamp;
-//
-//        // 檢查deltaTime是否太小，避免出現"infinity"
-//        if (deltaTime > 5) {
-//            const touchDistance = Math.abs(event.touches[0].clientY - previousToutchY);
-//            scrollSpeed = Math.round(touchDistance / deltaTime * 100) / 100;
-//            speedElement.innerText = scrollSpeed + ' pixels/ms';
-//
-//            if (scrollSpeed > highestSpeed) {
-//                highestSpeed = scrollSpeed;
-//                highestSpeedElement.innerText = highestSpeed + ' pixels/ms';
-//            }
-//        }
-//        updateAnimationDuration();
-//    }
-//    previousTimestamp = performance.now();
-//    previousTouchY = event.touches[0].clientY;
-//}
 
 function resetHighestSpeed() {
     highestSpeed = 0;
@@ -66,7 +87,12 @@ function updateAnimationDuration() {
 
 window.addEventListener('wheel', calculateScrollSpeed);
 resetButton.addEventListener('click', resetHighestSpeed);
-//window.addEventListener('touchmove', calculateTouchSpeed);
+window.addEventListener('touchstart', (event) => {
+    event.preventDefault(); // Prevent default touch behavior (e.g., scrolling) to ensure smooth touch tracking.
+    previousTimestamp = performance.now();
+});
+
+window.addEventListener('touchmove', calculateScrollSpeed);
 
 cube2.onclick = function () {
     cube2.style.animationDuration = `0s`;
@@ -203,14 +229,14 @@ function animate() {
     if (mixer) {
         mixer.update(clock.getDelta());
     }
-    
+
     // 設定EMU轉動效果
     if (emu) {
-        emu.position.set(2.5,2,0);
+        emu.position.set(2.5, 2, 0);
         emu.rotation.z = Math.PI / 2;
         emu.rotation.x += 0.05 + scrollSpeed / 10;
     }
-    
+
     // 設定正方形轉動效果
     cube.rotation.x += 0.01 + scrollSpeed / 10;
 
