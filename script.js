@@ -14,7 +14,7 @@ function calculateScrollSpeed(event) {
             const touch = event.touches[0];
             const scrollDistance = Math.sqrt(touch.clientX ** 2 + touch.clientY ** 2); // You can adjust this to calculate the actual scroll distance based on touch position.
             scrollSpeed = Math.round(scrollDistance / deltaTime * 100) / 100;
-            speedElement.innerText = touchScrollSpeed + ' pixels/ms';
+            speedElement.innerText = scrollSpeed + ' pixels/ms';
 
             if (scrollSpeed > highestSpeed) {
                 highestSpeed = scrollSpeed;
