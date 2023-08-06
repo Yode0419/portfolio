@@ -3,6 +3,7 @@ const highestSpeedElement = document.getElementById('highestSpeed');
 const resetButton = document.getElementById('resetButton');
 const cube2 = document.getElementById('cube2');
 let previousTimestamp = null;
+let previousTouchY = null;
 let scrollSpeed = 0;
 let highestSpeed = 0;
 
@@ -27,6 +28,28 @@ function calculateScrollSpeed(event) {
     previousTimestamp = performance.now();
 }
 
+function calculateTouchSpeed(event) {
+    if (previousTimestamp !== null) {
+        const currentTimestamp = performance.now();
+        const deltaTime = currentTimestamp - previousTimestamp;
+
+        // 檢查deltaTime是否太小，避免出現"infinity"
+        if (deltaTime > 5) {
+            const touchDistance = Math.abs(event.touches[0].clientY - previousToutchY);
+            scrollSpeed = Math.round(touchDistance / deltaTime * 100) / 100;
+            speedElement.innerText = scrollSpeed + ' pixels/ms';
+
+            if (scrollSpeed > highestSpeed) {
+                highestSpeed = scrollSpeed;
+                highestSpeedElement.innerText = highestSpeed + ' pixels/ms';
+            }
+        }
+        updateAnimationDuration();
+    }
+    previousTimestamp = performance.now();
+    previousTouchY = event.touches[0].clientY;
+}
+
 function resetHighestSpeed() {
     highestSpeed = 0;
     highestSpeedElement.innerText = highestSpeed + ' pixels/ms';
@@ -43,6 +66,7 @@ function updateAnimationDuration() {
 
 window.addEventListener('wheel', calculateScrollSpeed);
 resetButton.addEventListener('click', resetHighestSpeed);
+window.addEventListener('touchmove', calculateTouchSpeed);
 
 cube2.onclick = function () {
     cube2.style.animationDuration = `0s`;
@@ -58,7 +82,9 @@ import * as THREE from 'three';
 import {
     OrbitControls
 } from 'three/addons/controls/OrbitControls.js';
-
+import {
+    GLTFLoader
+} from 'three/addons/loaders/GLTFLoader.js';
 
 let container = document.querySelector('.container3D');
 let emu, mixer, emuRun, clock = new THREE.Clock();
@@ -126,7 +152,38 @@ const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 cube.position.set(0, 0.5, 0);
 scene.add(cube);
 
+// Load Modal
+let loader = new GLTFLoader();
+loader.load('./public/EmuJr.gltf',
+    function (gltf) {
+        //If the file is loaded, add it to the scene
+        emu = gltf.scene;
+        emu.traverse(function (node) {
+            if (node.isMesh) {
+                node.castShadow = true;
+                //                node.receiveShadow = true;
+            }
+        })
 
+        scene.add(emu);
+
+
+        let fileAnimations = gltf.animations;
+        mixer = new THREE.AnimationMixer(emu);
+        let animationName = THREE.AnimationClip.findByName(fileAnimations, 'ArmatureAction')
+        emuRun = mixer.clipAction(animationName);
+        emuRun.play();
+
+    },
+    function (xhr) {
+        //While it is loading, log the progress
+        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+    },
+    function (error) {
+        //If there is an error, log it
+        console.error(error);
+    }
+);
 
 // 建立光源
 let directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -142,12 +199,20 @@ function animate() {
     // 循環觸發渲染以產生動畫
     requestAnimationFrame(animate);
 
+    // 設定EMU跑步動畫
     if (mixer) {
         mixer.update(clock.getDelta());
     }
+    
+    // 設定EMU轉動效果
+    if (emu) {
+        emu.position.set(2.5,2,0);
+        emu.rotation.z = Math.PI / 2;
+        emu.rotation.x += 0.05 + scrollSpeed / 10;
+    }
+    
     // 設定正方形轉動效果
-    //
-    cube.rotation.x += 0.01 + scrollSpeed / 100;
+    cube.rotation.x += 0.01 + scrollSpeed / 10;
 
     renderer.render(scene, camera);
 }

@@ -121,6 +121,7 @@ loader.load('./public/EmuJr.gltf',
     }
 );
 
+
 // 建立光源
 let directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(5, 10, 10);
@@ -135,11 +136,18 @@ function animate() {
     // 循環觸發渲染以產生動畫
     requestAnimationFrame(animate);
 
+    // 設定EMU跑步動畫
     if (mixer) {
         mixer.update(clock.getDelta());
     }
+    // 設定EMU轉動效果
+    if (emu) {
+        emu.position.set(2.5,2,0);
+        emu.rotation.z = Math.PI / 2;
+        emu.rotation.x += 0.05;
+    }
+    
     // 設定正方形轉動效果
-    //
     cube.rotation.y += 0.01;
 
     renderer.render(scene, camera);
