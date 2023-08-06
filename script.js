@@ -3,7 +3,7 @@ const highestSpeedElement = document.getElementById('highestSpeed');
 const resetButton = document.getElementById('resetButton');
 const cube2 = document.getElementById('cube2');
 let previousTimestamp = null;
-let previousTouchY = null;
+//let previousTouchY = null;
 let scrollSpeed = 0;
 let highestSpeed = 0;
 
@@ -28,27 +28,27 @@ function calculateScrollSpeed(event) {
     previousTimestamp = performance.now();
 }
 
-function calculateTouchSpeed(event) {
-    if (previousTimestamp !== null) {
-        const currentTimestamp = performance.now();
-        const deltaTime = currentTimestamp - previousTimestamp;
-
-        // 檢查deltaTime是否太小，避免出現"infinity"
-        if (deltaTime > 5) {
-            const touchDistance = Math.abs(event.touches[0].clientY - previousToutchY);
-            scrollSpeed = Math.round(touchDistance / deltaTime * 100) / 100;
-            speedElement.innerText = scrollSpeed + ' pixels/ms';
-
-            if (scrollSpeed > highestSpeed) {
-                highestSpeed = scrollSpeed;
-                highestSpeedElement.innerText = highestSpeed + ' pixels/ms';
-            }
-        }
-        updateAnimationDuration();
-    }
-    previousTimestamp = performance.now();
-    previousTouchY = event.touches[0].clientY;
-}
+//function calculateTouchSpeed(event) {
+//    if (previousTimestamp !== null) {
+//        const currentTimestamp = performance.now();
+//        const deltaTime = currentTimestamp - previousTimestamp;
+//
+//        // 檢查deltaTime是否太小，避免出現"infinity"
+//        if (deltaTime > 5) {
+//            const touchDistance = Math.abs(event.touches[0].clientY - previousToutchY);
+//            scrollSpeed = Math.round(touchDistance / deltaTime * 100) / 100;
+//            speedElement.innerText = scrollSpeed + ' pixels/ms';
+//
+//            if (scrollSpeed > highestSpeed) {
+//                highestSpeed = scrollSpeed;
+//                highestSpeedElement.innerText = highestSpeed + ' pixels/ms';
+//            }
+//        }
+//        updateAnimationDuration();
+//    }
+//    previousTimestamp = performance.now();
+//    previousTouchY = event.touches[0].clientY;
+//}
 
 function resetHighestSpeed() {
     highestSpeed = 0;
@@ -66,7 +66,7 @@ function updateAnimationDuration() {
 
 window.addEventListener('wheel', calculateScrollSpeed);
 resetButton.addEventListener('click', resetHighestSpeed);
-window.addEventListener('touchmove', calculateTouchSpeed);
+//window.addEventListener('touchmove', calculateTouchSpeed);
 
 cube2.onclick = function () {
     cube2.style.animationDuration = `0s`;
