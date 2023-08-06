@@ -234,7 +234,7 @@ function animate() {
     if (emu) {
         emu.position.set(2.5, 2, 0);
         emu.rotation.z = Math.PI / 2;
-        emu.rotation.x += 0.05 + scrollSpeed / 10;
+        emu.rotation.x += 0.01 + scrollSpeed / 10;
     }
 
     // 設定正方形轉動效果
