@@ -11,6 +11,9 @@ myImage.onclick = function () {
 }
 
 
+
+
+//THREE.js
 import * as THREE from 'three';
 import {
     OrbitControls
@@ -137,7 +140,7 @@ function animate() {
     }
     // 設定正方形轉動效果
     //
-    //    cube.rotation.y += 0.01;
+    cube.rotation.y += 0.01;
 
     renderer.render(scene, camera);
 }
