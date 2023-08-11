@@ -1,3 +1,7 @@
+body {
+    background-color: #252627;
+}
+
 .announcement {
     color: red;
     font-weight: bold;
@@ -57,6 +61,7 @@ canvas {
 }
 
 .logo {
-    height: 100vh;
+    display: flex;
+    height: 30vh;
     background-color: rgba(206, 249, 255, 0.52);
 }
