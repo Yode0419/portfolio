@@ -15,7 +15,7 @@ let ball = {
 for (let i = 0; i < frameCount; i++) {
     const img = new Image();
     img.src = currentFrame(i);
-//    console.log(currentFrame(i));
+    //    console.log(currentFrame(i));
     images.push(img);
 }
 
@@ -68,8 +68,14 @@ const startAnimationButton = document.getElementById("startAnimationButton");
 
 startAnimationButton.addEventListener("click", () => {
     const Fm = ball.frame;
-    const dd = 3*(1-Fm/frameCount);
-    console.log('duration:'+ dd);
+    const dd = 2.5 * (1 - Fm / frameCount);
+    console.log('duration:' + dd);
+
+    //暫時禁用頁面捲動smooth
+    if (Fm < frameCount-1) {
+        document.documentElement.style.scrollBehavior = "auto";
+    }
+
     gsap.to(ball, {
         frame: frameCount - 1,
         snap: "frame",
@@ -83,6 +89,7 @@ startAnimationButton.addEventListener("click", () => {
                     behavior: "auto" // 使用 "auto" 或者没有 behavior 参数
                 });
             }
+            document.documentElement.style.scrollBehavior = "smooth";
         },
         onUpdate: render,
     });
