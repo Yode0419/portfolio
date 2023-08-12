@@ -11,18 +11,29 @@
 </head>
 
 <body>
-    <div id="preloader" style="height:100vh; display:flex; align-items:center; background-color:black; color:white; justify-content: center;">
+    <div id="preloader" style="height:100vh; width:100%; display:flex; align-items:center; background-color:black; color:white; justify-content: center; z-index: 100; position:fixed">
         <p>loading...</p>
     </div>
 
-    <button id="scrollButton">按我捲動</button>
-    <!--    <a href="#targetSection">按我捲動</a>-->
+    <div class="navbar" style="width: 100%; position:fixed; z-index: 99; display:flex;">
+        <button style="flex: 1;margin:10px 10px;"><a href="#top">回到頂部</a></button>
+        <button id="startAnimationButton" style="flex:1; margin:10px 10px;">按我捲動到Section #1</button>
+        <button style="flex:1; margin:10px 10px;"><a href="#section2">按我捲動到Section #2</a></button>
+        <button style="flex:1; margin:10px 10px;"><a href="#section3">按我捲動到Section #3</a></button>
+    </div>
+
+
 
     <h2 class="ball-text">Ballzy design.</h2>
-    <canvas class="canvas"></canvas>
-    <div class="details">
-        <h1 id="targetSection">Pretty cool 🔥🔥</h1>
-        <button id="scrollToTopButton" class="btn btn-primary">回到頂部</button>
+    <canvas class="canvas" id="canvas"></canvas>
+    <div class="details section1" id="section1">
+        <h1>Section 1🔥</h1>
+    </div>
+    <div class="details section2" id="section2">
+        <h1>Section 2🔥🔥</h1>
+    </div>
+    <div class="details section3" id="section3">
+        <h1>Section 3🔥🔥🔥</h1>
     </div>
 
 
@@ -37,6 +48,4 @@
             loader.style.display = "none";
         })
     </script>
-</body>
-
-</html>
+</body></html>

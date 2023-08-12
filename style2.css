@@ -20,8 +20,18 @@ canvas {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items:flex-start;
+  align-items:center;
   font-size: 2rem;
+}
+
+.section1{
+    background-color: antiquewhite;
+}
+.section2{
+    background-color: #f7aac3;
+}
+.section3{
+    background-color: #99baaf;
 }
 
 .ball-text {
@@ -47,5 +57,10 @@ canvas {
 }
 
 html{
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+}
+
+a{
+    color:black;
+    text-decoration: none;
 }

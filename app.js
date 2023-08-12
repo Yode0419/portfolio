@@ -15,7 +15,7 @@ let ball = {
 for (let i = 0; i < frameCount; i++) {
     const img = new Image();
     img.src = currentFrame(i);
-    console.log(currentFrame(i));
+//    console.log(currentFrame(i));
     images.push(img);
 }
 
@@ -26,7 +26,7 @@ gsap.to(ball, {
     scrollTrigger: {
         scrub: 0.5,
         pin: "canvas",
-        end: "1000%",
+        end: "200%",
     },
     onUpdate: render,
 });
@@ -62,68 +62,29 @@ function render() {
 }
 
 
-// 當按鈕被點擊時執行捲動到指定位置的功能
-document.getElementById('scrollButton').addEventListener('click', function () {
-    const targetSection = document.getElementById('targetSection');
-    smoothScrollTo(targetSection, 1000, 30); // 調用自定義的平滑捲動函式
+
+
+const startAnimationButton = document.getElementById("startAnimationButton");
+
+startAnimationButton.addEventListener("click", () => {
+    const Fm = ball.frame;
+    const dd = 3*(1-Fm/frameCount);
+    console.log('duration:'+ dd);
+    gsap.to(ball, {
+        frame: frameCount - 1,
+        snap: "frame",
+        ease: "none",
+        duration: dd,
+        onComplete: () => {
+            // 播放完动画后，直接跳转到第二部分，无需平滑滚动
+            const targetSection = document.getElementById("section1");
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: "auto" // 使用 "auto" 或者没有 behavior 参数
+                });
+            }
+        },
+        onUpdate: render,
+    });
+    console.log(ball.frame);
 });
-
-// 自定義的平滑捲動函式
-function smoothScrollTo(target, duration, step) {
-    const targetOffsetTop = target.offsetTop;
-    const initialPosition = window.pageYOffset;
-    const distance = targetOffsetTop - initialPosition;
-    const steps = Math.abs(Math.floor(duration / step));
-    const stepValue = distance / steps;
-    let currentPosition = initialPosition;
-
-    function scroll() {
-        currentPosition += stepValue;
-        window.scrollTo(0, currentPosition);
-
-        if (Math.abs(currentPosition - targetOffsetTop) < Math.abs(stepValue)) {
-            window.scrollTo(0, targetOffsetTop);
-        } else if (currentPosition < targetOffsetTop) {
-            setTimeout(scroll, step);
-        }
-    }
-
-    scroll();
-};
-
-// 當按鈕被點擊時，觸發回到頂部的平滑捲動效果
-document.getElementById('scrollToTopButton').addEventListener('click', function () {
-    scrollToTop(1000, 30);
-});
-
-// 監聽視窗的滾動事件，顯示或隱藏回到頂部按鈕
-window.addEventListener('scroll', function () {
-    var scrollToTopButton = document.getElementById('scrollToTopButton');
-    if (window.pageYOffset > 100) {
-        scrollToTopButton.classList.add('show');
-    } else {
-        scrollToTopButton.classList.remove('show');
-    }
-});
-
-// 平滑捲動到頁面最頂部的函式
-function scrollToTop(duration, step) {
-    var currentPosition = window.pageYOffset;
-    var distance = currentPosition;
-    var totalSteps = Math.abs(Math.floor(duration / step));
-    var stepValue = currentPosition / totalSteps;
-
-    function scroll() {
-        currentPosition -= stepValue;
-        window.scrollTo(0, currentPosition);
-
-        if (currentPosition > 0) {
-            setTimeout(scroll, step);
-        } else {
-            window.scrollTo(0, 0);
-        }
-    }
-
-    scroll();
-};
-
