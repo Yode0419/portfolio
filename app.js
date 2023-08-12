@@ -26,29 +26,29 @@ gsap.to(ball, {
     scrollTrigger: {
         scrub: 0.5,
         pin: "canvas",
-        end: "200%",
+        end: "600%",
     },
     onUpdate: render,
 });
 
-gsap.fromTo(
-    ".ball-text", {
-        opacity: 0,
-    }, {
-        opacity: 1,
-        scrollTrigger: {
-            scrub: 1,
-
-            start: "50%",
-            end: "60%",
-        },
-        onComplete: () => {
-            gsap.to(".ball-text", {
-                opacity: 0
-            });
-        },
-    }
-);
+//gsap.fromTo(
+//    ".ball-text", {
+//        opacity: 0,
+//    }, {
+//        opacity: 1,
+//        scrollTrigger: {
+//            scrub: 1,
+//
+//            start: "50%",
+//            end: "60%",
+//        },
+//        onComplete: () => {
+//            gsap.to(".ball-text", {
+//                opacity: 0
+//            });
+//        },
+//    }
+//);
 
 images[0].onload = render;
 
@@ -72,7 +72,7 @@ startAnimationButton.addEventListener("click", () => {
     console.log('duration:' + dd);
 
     //暫時禁用頁面捲動smooth
-    if (Fm < frameCount-1) {
+    if (Fm < frameCount - 1) {
         document.documentElement.style.scrollBehavior = "auto";
     }
 
@@ -83,15 +83,14 @@ startAnimationButton.addEventListener("click", () => {
         duration: dd,
         onComplete: () => {
             // 播放完动画后，直接跳转到第二部分，无需平滑滚动
-            const targetSection = document.getElementById("section1");
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: "auto" // 使用 "auto" 或者没有 behavior 参数
-                });
-            }
+            const targetSection0 = document.getElementById("section0");
+            const targetSection1 = document.getElementById("section1");
+            targetSection0.scrollIntoView();
             document.documentElement.style.scrollBehavior = "smooth";
+            targetSection1.scrollIntoView();
         },
         onUpdate: render,
     });
-    console.log(ball.frame);
+    
+//    console.log(ball.frame);
 });

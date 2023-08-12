@@ -1,81 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
 * {
-  margin: 0;
-  padding: 0;
-/*  box-sizing: border-box;*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Lato", sans-serif;
-  overflow-x: hidden;
-  background-color: #1F2123;
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+    background-color: #1F2123;
 }
 
 .loadingLogo {
-    width:100px;
+    width: 100px;
 }
 
 canvas {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
 }
 
 .details {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  font-size: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*    justify-content: center;*/
+    font-size: 2rem;
 }
 
-.section1{
-    color:white;
+.details h1 {
+    margin-top: 100px;
+}
+
+.section0 {
     background-color: #202123;
 }
-.section2{
+
+.section1 {
+    color: white;
+    background-color: #202123;
+}
+
+.section2 {
     background-color: #f7aac3;
 }
-.section3{
+
+.section3 {
     background-color: #99baaf;
 }
 
+#startAnimationButton {
+    user-select: none;
+}
+
 .ball-text {
-  position: fixed;
-  z-index: 2;
-  color: white;
-  font-size: 5rem;
-  right: 20%;
-  bottom: 40%;
-  transform: translate(-20%, -40%);
+    position: fixed;
+    z-index: 2;
+    color: white;
+    font-size: 5rem;
+    right: 20%;
+    bottom: 40%;
+    transform: translate(-20%, -40%);
 }
 
 @media screen and (max-width: 1024px) {
-  .ball-text {
-    font-size: 2rem;
-    right: 50%;
-    bottom: 25%;
-    transform: translate(50%, 50%);
-  }
-  h1 {
-    font-size: 2rem;
-  }
+    .ball-text {
+        font-size: 2rem;
+        right: 50%;
+        bottom: 25%;
+        transform: translate(50%, 50%);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-a{
-    flex:1;
+.nav {
+    font-family: "Varela Round";
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    display: flex;
+    background-color: #2526279A;
+    /*    justify-content: center;*/
+}
+
+.nav .navlink {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+a {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size:12px;
-    color:white;
+    font-size: 1rem;
+    color: white;
     text-decoration: none;
-    max-width: 120px;
-    padding:10px;
-    margin:10px;
-    border: 1px solid white;
-    border-radius: 10px;
+    /*    max-width: 120px;*/
+    padding: 10px;
+    margin: 10px;
+    /*    border: 1px solid #6f6f6f;*/
+    /*    border-radius: 10px;*/
 }

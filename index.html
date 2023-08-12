@@ -18,10 +18,14 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
-    <title>Yode's Portfolio</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>yode's portfolio</title>
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="styles.css" />
-    
+
+
+
     <!--Three.js CDN-->
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <script type="importmap">
@@ -49,14 +53,38 @@
 
 <body>
 
-    <img style="width:100vw; height:100vh; object-fit: cover;" src="./img/yode_bg_1080p.jpg" alt="">
-    <h1 style="margin:10px;">Yode的作品集網站</h1>
-    <hr />
-    <!--分頁連結-->
-    <!--Bootstrap Navbar-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" alt="" style="max-height: 50px"></a>
+    <nav class="navbar">
+        <a href="#top" class="navbarLogo"><img src="./img/navbarLogo.png" alt=""></a>
+
+
+        <div class="navbarLink">
+            <div class="navbarItem">
+                <a href="">作品集</a>
+                <a href="">關於我</a>
+                <a href="">聯絡我</a>
+            </div>
+            <div class="navbarIcon">
+                <a href="" class="langIcon"><img src="./img/language_icon.svg" alt=""></a>
+                <input type="checkbox" id="check">
+                <label for="check" class="hamberger">
+                    <i class='bx bx-menu' id="openHamberger"></i>
+                    <i class='bx bx-x' id="closeHamberger"></i>
+                </label>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+
+
+
+    <!--
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="#top"><img src="./img/logo.gif" alt="" style="max-height: 50px"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -71,8 +99,14 @@
             </div>
         </div>
     </nav>
+-->
     <!--/Bootstrap Navbar-->
-    <!--/分頁連結-->
+    <img style="width:100vw; height:100vh; object-fit: cover;" src="./img/yode_bg_1080p.jpg" alt="">
+    <h1 style="margin:10px; color:white;">Yode的作品集網站</h1>
+    <hr />
+
+
+
 
     <div class="logo"> 這個是logo</div>
 

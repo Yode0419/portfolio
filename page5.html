@@ -16,24 +16,32 @@
         <p>loading...</p>
     </div>
 
-    <div class="navbar" style="width: 100%; position:fixed; z-index: 99; display:flex; justify-content: center;">
+    <div class="nav">
         <a href="#top">回到頂部</a>
-        <a id="startAnimationButton">捲動到Section #1</a>
-        <a href="#section2">捲動到Section #2</a>
-        <a href="#section3">捲動到Section #3</a>
+        <div class="navlink">
+            <a id="startAnimationButton">捲動到Section 1</a>
+            <a href="#section2">捲動到Section 2</a>
+            <a href="#section3">捲動到Section 3</a>
+        </div>
     </div>
 
 
 
-<!--    <h2 class="ball-text">Ballzy design.</h2>-->
-    
-    
+    <!--    <h2 class="ball-text">Ballzy design.</h2>-->
+
+
     <canvas class="canvas" id="canvas"></canvas>
+    <div class="details section0" id="section0">
+    </div>
     <div class="details section1" id="section1">
         <h1>Section 1🔥</h1>
+        <p>test</p>
     </div>
     <div class="details section2" id="section2">
         <h1>Section 2🔥🔥</h1>
+        <p>ROG</p>
+        <p>ROG</p>
+        <p>ROG</p>
     </div>
     <div class="details section3" id="section3">
         <h1>Section 3🔥🔥🔥</h1>
@@ -45,7 +53,7 @@
     <script src="./app.js"></script>
 
     <!--    preloader-->
-    
+
     <script>
         var loader = document.getElementById("preloader");
         window.addEventListener("load", function() {
