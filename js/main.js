@@ -1,3 +1,17 @@
+
+//hamberger下拉時，按下裡面的按鈕或是左上角Logo，hamberger要縮回去
+const links = document.querySelectorAll('.navbarItem a, .navbarLogo');
+
+const checkbox = document.getElementById('check');
+
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        checkbox.checked = false; // 取消選中狀態
+    });
+});
+
+
+
 //alert("test");
 let myImage = document.querySelector('#pekoImage');
 
