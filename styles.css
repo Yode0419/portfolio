@@ -13,6 +13,10 @@ body {
     background-color: #1F2123;
 }
 
+
+
+
+/*NAVBAR(Responsive)--START--*/
 .navbar {
     position: fixed;
     top: 0;
@@ -49,19 +53,22 @@ body {
     align-items: center;
 }
 
-.navbarItem a {
+.navbarItem a,
+.langOptions a {
     padding: 0 1.25rem;
     color: white;
     text-decoration: none;
     transition: 0.2s ease;
 }
 
-.navbarItem a:hover {
+.navbarItem a,
+.langOptions a:hover {
     text-shadow: 0 0 0.5rem #A9BAD5;
-    /* 光晕效果 */
+    /* 光暈效果*/
 }
 
-#check {
+#itemCheck,
+#langCheck {
     display: none;
 }
 
@@ -96,10 +103,47 @@ body {
     display: none;
 }
 
+.langOptions {
+    position: absolute;
+    top: 100%;
+    right: 7.5%;
+    min-width: calc(5% + 3rem);
+    height: 0;
+    background-color: #252627E6;
+    backdrop-filter: blur(1.5px);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+#langCheck:checked ~ .langOptions {
+    height: 8rem;
+}
+
+.langOptions a {
+    height: 2.5rem;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+#langCheck:checked ~ .langOptions a {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
 /*BREAKPOINT FOR NAVBAR*/
 @media (max-width: 992px) {
     .navbar {
         padding: 0 5%;
+    }
+
+    .langOptions {
+        right: 2%;
     }
 }
 
@@ -108,7 +152,7 @@ body {
         display: flex;
     }
 
-    #check:checked ~ .navbarIcon .hamberger #openHamberger {
+    #itemCheck:checked ~ .navbarIcon .hamberger #openHamberger {
         display: none;
     }
 
@@ -116,7 +160,7 @@ body {
         display: none;
     }
 
-    #check:checked ~ .navbarIcon .hamberger #closeHamberger {
+    #itemCheck:checked ~ .navbarIcon .hamberger #closeHamberger {
         display: flex;
     }
 
@@ -132,7 +176,7 @@ body {
         transition: 0.3s ease;
     }
 
-    #check:checked ~ .navbarItem {
+    #itemCheck:checked ~ .navbarItem {
         height: 16rem;
     }
 
@@ -147,11 +191,48 @@ body {
         transition: 0.3s ease;
     }
 
-    #check:checked ~ .navbarItem a {
+    #itemCheck:checked ~ .navbarItem a {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .langOptions {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: #252627E6;
+        backdrop-filter: blur(1.5px);
+        overflow: hidden;
+        transition: 0.3s ease;
+    }
+
+    #langCheck:checked ~ .langOptions {
+        height: 11rem;
+    }
+
+    .langOptions a {
+        height: 4rem;
+        margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: 0.3s ease;
+    }
+
+    #langCheck:checked ~ .langOptions a {
         transform: translateY(0);
         opacity: 1;
     }
 }
+/*NAVBAR(Responsive)--END--*/
+
+
+
+
 
 
 
@@ -171,7 +252,7 @@ body {
 
 h2 {
     text-align: center;
-    color:white;
+    color: white;
 }
 
 .peko {
@@ -187,7 +268,7 @@ h2 {
 
 .container3D,
 canvas {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     max-height: 500px;
     /*    border: 1px solid black;*/

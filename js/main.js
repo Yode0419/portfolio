@@ -1,14 +1,40 @@
-
-//hamberger下拉時，按下裡面的按鈕或是左上角Logo，hamberger要縮回去
-const links = document.querySelectorAll('.navbarItem a, .navbarLogo');
-
-const checkbox = document.getElementById('check');
+// 按hamberger下拉連結選擇、按地球下拉語言選擇時，再按下裡面的按鈕、左上角Logo、導航欄外面範圍時，要縮回去
+// 連結選擇和語言選擇不能同時下拉
+const links = document.querySelectorAll('.navbarItem a, .langOptions a, .navbarLogo');
+const itemCheckbox = document.getElementById('itemCheck');
+const langCheckbox = document.getElementById('langCheck');
+const navbar = document.querySelector('.navbar');
 
 links.forEach(link => {
     link.addEventListener('click', () => {
-        checkbox.checked = false; // 取消選中狀態
+        itemCheckbox.checked = false; // 關閉連結選擇
+        langCheckbox.checked = false; // 關閉語言選擇
     });
 });
+
+itemCheckbox.addEventListener('change', () => {
+    if (itemCheckbox.checked) {
+        langCheckbox.checked = false; // 關閉語言選擇
+    }
+});
+
+langCheckbox.addEventListener('change', () => {
+    if (langCheckbox.checked) {
+        itemCheckbox.checked = false; // 關閉連結選擇
+    }
+});
+
+// 監聽頁面上的點擊事件
+document.addEventListener('click', event => {
+    // 點擊導航欄外部時，關閉導航欄
+    if (!navbar.contains(event.target)) {
+        itemCheckbox.checked = false; // 關閉連結選擇
+        langCheckbox.checked = false; // 關閉語言選擇
+    }
+});
+
+
+
 
 
 
@@ -156,11 +182,11 @@ function animate() {
     }
     // 設定EMU轉動效果
     if (emu) {
-        emu.position.set(2.5,2,0);
+        emu.position.set(2.5, 2, 0);
         emu.rotation.z = Math.PI / 2;
         emu.rotation.x += 0.05;
     }
-    
+
     // 設定正方形轉動效果
     cube.rotation.y += 0.01;
 
