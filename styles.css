@@ -61,7 +61,7 @@ body {
     transition: 0.2s ease;
 }
 
-.navbarItem a,
+.navbarItem a:hover,
 .langOptions a:hover {
     text-shadow: 0 0 0.5rem #A9BAD5;
     /* 光暈效果*/
