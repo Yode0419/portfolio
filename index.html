@@ -59,7 +59,7 @@
         <div class="navbarLink">
             <input type="checkbox" id="itemCheck">
             <div class="navbarItem">
-                <a href="#section1">作品集</a>
+                <a id="bgAnimationButton">作品集</a>
                 <a href="#section2">關於我</a>
                 <a href="#section3">聯絡我</a>
             </div>
@@ -82,88 +82,76 @@
         </div>
     </nav>
 
-
-
     <!--WELCOME PAGE-->
     <div class="welcomePage">
-        <img style="width:100%; height:100vh; object-fit: cover;" src="./img/yode_bg_1080p.jpg" alt="">
-        <br>
-        <div class="container textOverlay">
-            <div class="row P1">
-                <div class="col">
-                    <p>UX Designer</p>
+        <canvas class="bgCanvas" id="bgCanvas"></canvas>
+        <div class="scrollToHide">
+            <div class="container textOverlay">
+                <div class="row P1">
+                    <div class="col">
+                        <p>UX Designer</p>
+                    </div>
+                </div>
+                <div class="row P2">
+                    <div class="col">
+                        <div class="P2-1">Hi, 歡迎光臨Yode的作品集網站</div>
+                        <div class="P2-2">我喜歡燒腦🔥</div>
+                        <div class="P2-2">將靈感轉變成有趣的體驗🫠</div>
+                    </div>
                 </div>
             </div>
-            <div class="row P2">
-                <div class="col">
-                    <div class="P2-1">Hi, 歡迎光臨Yode的作品集網站</div>
-                    <div class="P2-2">我喜歡燒腦🔥</div>
-                    <div class="P2-2">將靈感轉變成有趣的體驗🫠
-                    </div>
+            <div class="arrowDown" id="arrowDown"></div>
+        </div>
+    </div>
 
-                </div>
+
+
+
+    <!--   SECTION-->
+    <div class="section section0" id="section0"></div>
+
+    <div class="section section1" id="section1">
+        <div class="container">
+            <div class="row">
+                <h1>作品集</h1>
+            </div>
+            <div class="row">
+                <img class="peko" id="pekoImage" src="img/peko.gif" alt="peko">
+                <p>窩不知道QQ</p>
+                <p>QQ ~ ~</p>
             </div>
         </div>
+    </div>
 
-        <div class="arrowDown"></div>
+    <div class="section section2" id="section2">
+        <div class="container">
+            <div class="row">
+                <h1>關於我</h1>
+                <p>...</p>
+                <p>還沒寫</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section3" id="section3">
+        <div class="container">
+            <div class="row">
+                <h1>聯絡我</h1>
+                <p>...</p>
+                <p>先寄信ㄅ</p>
+                <p>yode0419@gmail.com</p>
+            </div>
+        </div>
     </div>
 
 
 
-    <div id="section1" style="height: 100vh;">
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1 style="color:white; margin-left: 5%">作品集</h1>
-        <hr />
-        <br />
-        <br />
-        <img class="peko" id="pekoImage" src="img/peko.gif" alt="peko">
-        <br />
-        <br />
+    <!--    雜物-->
 
-        <h2>窩不知道QQ</h2>
-        <h2>QQ ~ ~</h2>
-    </div>
-
-    <div id="section2" style="height: 100vh;">
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1 style="color:white; margin-left: 5%">關於我</h1>
-        <hr />
-        <br />
-        <h2>還沒寫</h2>
-    </div>
-
-    <div id="section3" style="height: 100vh;">
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1 style="color:white; margin-left: 5%">聯絡我</h1>
-        <hr />
-        <br />
-        <h2>先寄信ㄅ</h2>
-        <br>
-        <h2>yode0419@gmail.com</h2>
-    </div>
-
-
-
-
-
-    <div class="logo"> 這個是 logo</div>
+    <!--    <div class="logo"> 這個是 logo</div>-->
 
     <div class="container">
 
-        <!--小鴯鶓3D視窗-->
-        <div class="row justify-content-center m-3">
-            <div class="col-10 d-flex container3D"></div>
-        </div>
-        <!--/小鴯鶓3D視窗-->
 
         <div class="row justify-content-center">
             <h1 class="announcement">現在這ㄍ網頁一團亂，因為還在學習如何製作，亂測試一些效果ㄏㄏ</h1>
@@ -228,9 +216,16 @@
     <hr>
     <p style="margin: 10px;">2023/7/21</p>
 
+
+
+
     <!--Lottie-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-    <!--/Lottie-->
+
+    <!-- GSAP-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js" integrity="sha512-tHvUcUQYi35zApvAa5TNR3fNhBQkVtkmWKfacnpxmix4/VTGz1lGjIVyLMp7gLgAvg+aKJjnVKokXJNS5GZ+/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!--    <script src="js/bootstrap.bundle.js"></script>-->
     <script src="js/main.js" type="module"></script>
     <script src="js/lottieIcon.js"></script>

@@ -35,6 +35,106 @@ document.addEventListener('click', event => {
 
 
 
+//歡迎頁面捲動動畫
+const bgCanvas = document.querySelector(".bgCanvas");
+bgCanvas.width = window.innerWidth;
+bgCanvas.height = window.innerHeight;
+const bgContext = bgCanvas.getContext("2d");
+const frameCount = 125;
+
+const currentFrame = (index) => `./img/bgImage/${(index + 1).toString()}.jpg`;
+
+const bgImages = [];
+let bg = {
+    frame: 0
+};
+
+for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    img.src = currentFrame(i);
+    bgImages.push(img);
+}
+
+gsap.to(bg, {
+    frame: frameCount - 1,
+    snap: "frame",
+    ease: "none",
+    scrollTrigger: {
+        scrub: 0.5,
+        pin: "canvas",
+        end: "600%",
+    },
+    onUpdate: render,
+});
+
+bgImages[0].onload = render;
+
+function render() {
+    bgContext.canvas.width = bgImages[0].width;
+    bgContext.canvas.height = bgImages[0].height;
+    bgContext.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+    bgContext.drawImage(bgImages[bg.frame], 0, 0);
+    console.log(bg.frame);
+}
+
+function playAnimationAndScroll() {
+    const currentFrameNumber = bg.frame;
+    const durationTime = 2.5 * (1 - currentFrameNumber / frameCount);
+    console.log('duration:Time' + durationTime);
+
+    //暫時禁用頁面捲動smooth
+    if (currentFrameNumber < frameCount - 1) {
+        document.documentElement.style.scrollBehavior = "auto";
+    }
+
+    // 淡出 .scrollToHide 元素
+    const durationTimeOfHide = Math.max(0, 2.5 * (45 - currentFrameNumber) / frameCount);
+    console.log('durationTimeOfHide:' + durationTimeOfHide);
+    gsap.to(".scrollToHide", {
+        opacity: 0,
+        duration: durationTimeOfHide, // 根据您的需求调整淡出的时间
+    });
+
+    gsap.to(bg, {
+        frame: frameCount - 1,
+        snap: "frame",
+        ease: "none",
+        duration: durationTime,
+        onUpdate: render,
+        onComplete: () => {
+            // 播放完动画后，直接跳转到第二部分，无需平滑滚动
+            const targetSection0 = document.getElementById("section0");
+            const targetSection1 = document.getElementById("section1");
+            targetSection0.scrollIntoView();
+            document.documentElement.style.scrollBehavior = "smooth";
+            targetSection1.scrollIntoView();
+        },
+    });
+}
+
+const bgAnimationButton = document.getElementById("bgAnimationButton");
+const arrowDownButton = document.getElementById("arrowDown");
+
+bgAnimationButton.addEventListener("click", playAnimationAndScroll);
+arrowDownButton.addEventListener("click", playAnimationAndScroll);
+
+
+// 使用 fromTo 方法来实现淡出动画并显示标记
+gsap.fromTo(
+    ".scrollToHide", {
+        opacity: 1, // 起始透明度为 1
+    }, {
+        opacity: 0, // 结束透明度为 0
+        scrollTrigger: {
+            trigger: ".welcomePage", // 触发滚动的元素
+            start: "5%", // 触发动画的位置
+            end: "35%", // 结束动画的位置
+            scrub: true, // 使动画与滚动同步
+//            markers: true, // 启用标记以显示滚动位置和触发点
+        },
+    }
+);
+
 
 
 
@@ -51,159 +151,3 @@ myImage.onclick = function () {
         myImage.setAttribute('src', 'img/peko.gif');
     }
 }
-
-
-
-
-//THREE.js
-import * as THREE from 'three';
-import {
-    OrbitControls
-} from 'three/addons/controls/OrbitControls.js';
-import {
-    GLTFLoader
-} from 'three/addons/loaders/GLTFLoader.js';
-
-
-let container = document.querySelector('.container3D');
-let emu, mixer, emuRun, clock = new THREE.Clock();
-// 產生一個場景
-const scene = new THREE.Scene();
-
-// 產生一個相機
-const camera = new THREE.PerspectiveCamera(
-    75,
-    container.clientWidth / container.clientHeight,
-    0.1,
-    1000
-);
-
-// 設定相機的位置
-camera.position.set(2, 4, 5);
-
-// 選定渲染器
-const renderer = new THREE.WebGLRenderer({
-    alpha: true,
-    antialias: true
-});
-
-// enabling shadows
-renderer.shadowMap.enabled = true;
-//renderer.shadowMap.type = THREE.BasicShadowMap;
-
-//{antialias: true, alpha: true}
-// 初始渲染畫面尺寸
-renderer.setSize(container.clientWidth, container.clientHeight);
-
-// 加入 canvas 元素供渲染畫面
-container.appendChild(renderer.domElement);
-
-// 設定軌道控制器，讓相機可以環繞觀察場景
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.update();
-
-// 產生平面物體
-const planeGeometry = new THREE.PlaneGeometry(6, 6);
-const planeMaterial = new THREE.MeshPhongMaterial({
-    color: '#6D6D6D',
-    // 雙面著色
-    side: THREE.DoubleSide,
-});
-const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-plane.rotation.x = Math.PI / 2;
-plane.castShadow = false;
-plane.receiveShadow = true;
-
-// 設定平面物體在場景的位置
-plane.position.set(0, 0, 0);
-scene.add(plane);
-
-// 產生一個藍色正方形物體
-const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-const cubeMaterial = new THREE.MeshLambertMaterial({
-    color: '#429ef5'
-});
-
-const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-
-// 設定正方形物體的位置
-cube.position.set(0, 0, 5);
-scene.add(cube);
-
-// Load Modal
-let loader = new GLTFLoader();
-loader.load('./public/EmuJr.gltf',
-    function (gltf) {
-        //If the file is loaded, add it to the scene
-        emu = gltf.scene;
-        emu.traverse(function (node) {
-            if (node.isMesh) {
-                node.castShadow = true;
-                //                node.receiveShadow = true;
-            }
-        })
-
-        scene.add(emu);
-
-
-        let fileAnimations = gltf.animations;
-        mixer = new THREE.AnimationMixer(emu);
-        let animationName = THREE.AnimationClip.findByName(fileAnimations, 'ArmatureAction')
-        emuRun = mixer.clipAction(animationName);
-        emuRun.play();
-
-    },
-    function (xhr) {
-        //While it is loading, log the progress
-        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-    },
-    function (error) {
-        //If there is an error, log it
-        console.error(error);
-    }
-);
-
-
-// 建立光源
-let directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(5, 10, 10);
-directionalLight.castShadow = true;
-scene.add(directionalLight);
-
-const ambientLight = new THREE.AmbientLight(0x333333, 3);
-scene.add(ambientLight);
-
-// 設定動畫
-function animate() {
-    // 循環觸發渲染以產生動畫
-    requestAnimationFrame(animate);
-
-    // 設定EMU跑步動畫
-    if (mixer) {
-        mixer.update(clock.getDelta());
-    }
-    // 設定EMU轉動效果
-    if (emu) {
-        emu.position.set(2.5, 2, 0);
-        emu.rotation.z = Math.PI / 2;
-        emu.rotation.x += 0.05;
-    }
-
-    // 設定正方形轉動效果
-    cube.rotation.y += 0.01;
-
-    renderer.render(scene, camera);
-}
-
-// 開始執行動畫
-animate();
-
-// 配合視窗大小自動更新
-function onWindowResize() {
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(container.clientWidth, container.clientHeight);
-}
-
-window.addEventListener('resize', onWindowResize);

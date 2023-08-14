@@ -1,21 +1,23 @@
-const arrowDown = document.querySelector('.arrowDown');
-const arrowDownAnimtion = lottie.loadAnimation({
-    container: arrowDown,
-    renderer: 'svg',
-    loop: true,
-    autoplay: false,
-    path: './js/arrowDown.json'
-});
+const arrowDownElements = document.querySelectorAll('.arrowDown');
 
+arrowDownElements.forEach(arrowDown => {
+    const arrowDownAnimtion = lottie.loadAnimation({
+        container: arrowDown,
+        renderer: 'svg',
+        loop: true,
+        autoplay: false,
+        path: './js/arrowDown.json'
+    });
 
-// 鼠标移到上面时播放动画
-arrowDown.addEventListener('mouseenter', () => {
-    arrowDownAnimtion.play();
-});
+    // 鼠标移到上面时播放动画
+    arrowDown.addEventListener('mouseenter', () => {
+        arrowDownAnimtion.play();
+    });
 
-// 鼠标移出时取消动画
-arrowDown.addEventListener('mouseleave', () => {
-    arrowDownAnimtion.goToAndStop(0,false);
+    // 鼠标移出时取消动画
+    arrowDown.addEventListener('mouseleave', () => {
+        arrowDownAnimtion.goToAndStop(0, false);
+    });
 });
 
 
