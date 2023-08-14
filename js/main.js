@@ -38,6 +38,8 @@ document.addEventListener('click', event => {
 
 
 
+
+
 //alert("test");
 let myImage = document.querySelector('#pekoImage');
 

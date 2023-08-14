@@ -11,6 +11,7 @@ html {
 
 body {
     background-color: #1F2123;
+    color: white;
 }
 
 
@@ -228,7 +229,102 @@ body {
         opacity: 1;
     }
 }
+
 /*NAVBAR(Responsive)--END--*/
+
+
+
+
+
+
+
+
+/*WELCOME PAGE --START--*/
+.welcomePage {
+    text-align: center;
+}
+
+.welcomePage .P1 {
+    font-size: 1.25rem;
+    letter-spacing: 0.02rem;
+    margin-bottom: 1.5rem;
+    color: #AAA;
+}
+
+.welcomePage .P2 {
+    font-size: 1.5rem;
+    letter-spacing: 0.02rem;
+}
+
+.welcomePage .P2 .P2-1 {
+    margin-bottom: 0.5rem;
+}
+
+.welcomePage .P2 .P2-2 {
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.textOverlay {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.arrowDown {
+    height: 0.75rem;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+@media (max-width: 576px),
+(max-height:576px) {
+    .welcomePage .P1 {
+        font-size: 1rem;
+        letter-spacing: 0.02rem;
+        margin-bottom: 1.5rem;
+        color: #AAA;
+    }
+
+    .welcomePage .P2 {
+        font-size: 1.25rem;
+        letter-spacing: 0.02rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .arrowDown {
+        height: 0.5rem;
+    }
+}
+
+/*歡迎頁文字淡入動畫*/
+.welcomePage .P1,
+.welcomePage .P2,
+.welcomePage .arrowDown {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*WELCOME PAGE --END--*/
+
+
+
+
 
 
 
