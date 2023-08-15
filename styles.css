@@ -245,7 +245,7 @@ body {
 .bgCanvas {
     width: 100%;
     height: 100vh;
-/*    border: 2px solid white;*/
+    /*    border: 2px solid white;*/
     object-fit: cover;
 }
 
@@ -339,14 +339,84 @@ body {
 /*SECTION--START--*/
 .section {
     min-height: 100vh;
-    padding-top: 4rem;
+    padding-top: 4.5rem;
     margin-bottom: 3rem;
 }
 
 h1 {
     font-size: 1.75rem;
     font-weight: normal;
+    margin-bottom: 1rem;
 }
+
+.card {
+    max-width: 80%;
+    min-height: 15rem;
+    margin: 1rem 1rem 4rem 1rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    /*
+    background-color: #3A414F;
+    background-color: #3A414F;
+*/
+    background-image: linear-gradient(120deg, #3A414F33 0%, #3A414F99 50%, #2d316033 100%);
+}
+
+.card .cardRow1 {
+    height: 60%;
+    margin: 1% 0;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.card .cardRow2 {
+    height: 30%;
+    margin: 1% 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.card .cardRow3 {
+    height: 10%;
+    margin: 1% 0;
+    font-size: 1rem;
+    color: #AAA;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 1200px) {
+    .card .cardRow1 {
+        font-size: 1.75rem;
+    }
+
+    .card .cardRow2 {
+        font-size: 1.25rem;
+    }
+
+    .card .cardRow3 {
+        font-size: 0.875rem;
+    }
+}
+
+/*
+@media (max-width: 992px) {
+    .card .cardRow1 {
+        font-size: 2rem;
+    }
+
+    .card .cardRow2 {
+        font-size: 1.5rem;
+    }
+
+    .card .cardRow3 {
+        font-size: 1rem;
+    }
+}
+*/
 
 /*SECTION--END--*/
 
