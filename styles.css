@@ -336,6 +336,7 @@ body {
 
 
 
+
 /*SECTION--START--*/
 .section {
     min-height: 100vh;
@@ -350,10 +351,9 @@ h1 {
 }
 
 .card {
-    max-width: 80%;
-    min-height: 15rem;
-    margin: 1rem 1rem 4rem 1rem;
-    padding: 1.5rem;
+    height: auto;
+    margin: 0.5rem 0rem 3rem 0rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 16px;
     /*
     background-color: #3A414F;
@@ -363,31 +363,81 @@ h1 {
 }
 
 .card .cardRow1 {
-    height: 60%;
+    height: 8rem;
     margin: 1% 0;
     font-size: 2rem;
     display: flex;
+    position: relative;
+/*    background-color: #7b4e19;*/
+}
+
+.card .cardRow1 .cardTitle {
+    padding-right: 0.2rem;
+    width: 40%;
+    /* 設置卡片寬度的一半 */
+    display: flex;
     align-items: center;
+/*        background-color: #581e4d*/
+}
+
+.card .cardRow1 .cardImg {
+    position: absolute;
+    right: -2rem;
+    top: -3rem;
+    width: calc(60% + 1.75rem);
+    height: calc(100% + 3rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*        background-color: aquamarine;*/
+}
+
+.card .cardRow1 .cardImg img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 .card .cardRow2 {
-    height: 30%;
-    width:100%;
+    height: 4rem;
+    width: 100%;
     margin: 1% 0;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
+/*    background-color: #28745a;*/
 }
 
 .card .cardRow3 {
-    height: 10%;
+    height: 1rem;
     margin: 1% 0;
     font-size: 1rem;
     color: #AAA;
     display: flex;
     align-items: center;
     justify-content: space-between;
+/*    background-color: #00124d;*/
 }
+
+.cardForFun {
+    position: relative;
+}
+.cardForFun .cardRow1 {
+    height: 4rem;
+
+}
+
+.cardForFun .cardRow3 {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 1.5rem;
+}
+
+.cardForFun .cardRow2 {
+    height: 2rem;
+}
+
+
 
 @media (max-width: 1200px) {
     .card .cardRow1 {
@@ -403,21 +453,7 @@ h1 {
     }
 }
 
-/*
-@media (max-width: 992px) {
-    .card .cardRow1 {
-        font-size: 2rem;
-    }
 
-    .card .cardRow2 {
-        font-size: 1.5rem;
-    }
-
-    .card .cardRow3 {
-        font-size: 1rem;
-    }
-}
-*/
 
 /*SECTION--END--*/
 
