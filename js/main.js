@@ -138,16 +138,3 @@ gsap.fromTo(
 
 
 
-
-
-//alert("test");
-let myImage = document.querySelector('#pekoImage');
-
-myImage.onclick = function () {
-    let myScr = myImage.getAttribute('src');
-    if (myScr === 'img/peko.gif') {
-        myImage.setAttribute('src', 'img/peko2.png');
-    } else {
-        myImage.setAttribute('src', 'img/peko.gif');
-    }
-}

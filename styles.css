@@ -372,6 +372,7 @@ h1 {
 
 .card .cardRow2 {
     height: 30%;
+    width:100%;
     margin: 1% 0;
     font-size: 1.5rem;
     display: flex;
