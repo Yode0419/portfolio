@@ -170,14 +170,15 @@ document.getElementById('googleForm').addEventListener('submit', function (e) {
             mode: 'no-cors', // Google 只接受 'no-cors' 模式
         })
         .then(() => {
+            alert("THANK YOU!!!");
             // 完成后清空表单字段
+            rating.forEach(input => {
+                input.checked = false;
+            });
+            console.log("send success!");
             document.getElementById('name').value = '';
             document.getElementById('email').value = '';
             document.getElementById('message').value = '';
-            document.getElementById('score').value = '';
-            score = 0;
-             // 完成后重定向到感谢页面
-            window.location.href = 'thank_you.html';
         })
         .catch(() => {
             // 提交失败时处理
