@@ -139,50 +139,46 @@ gsap.fromTo(
 
 
 
-//記錄評價的數值
+// 记录评价的数值
 const rating = document.querySelectorAll('input[name="score"]');
-console.log(rating);
 let score = 0;
 rating.forEach(input => {
-    input.addEventListener('click', function () {
-        // 当点击时，将选中的值存储在 score 变量中
-        score = this.value;
-        //        console.log('Selected score:', score);
-    });
+  input.addEventListener('click', function () {
+    score = this.value;
+  });
 });
 
-//聯繫我表單傳送至google form
+// 联系我表单提交至 Google Form
 document.getElementById('googleForm').addEventListener('submit', function (e) {
-    e.preventDefault(); //阻擋默認事件
+  e.preventDefault(); // 阻止默认事件
 
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var message = document.getElementById('message').value;
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
 
-    console.log(name);
-    console.log(email);
-    console.log(message);
-    console.log(score);
+  const FORM_ID = '1FAIpQLSfT4XMewlRDUyiANUsIc3cAqNQOkwT28xCaEOaAC0q5oE6Jbw';
+  const query = {
+    'entry.670740193': name,
+    'entry.905490443': email,
+    'entry.711108969': message,
+    'entry.342017208': score,
+    'submit': 'SUBMIT' // 添加 submit 参数
+  };
 
-    //        if (name && score) {
-    var xhr = new XMLHttpRequest();
-    var formData = new FormData();
-    formData.append("entry.670740193", name);
-    formData.append("entry.905490443", email);
-    formData.append("entry.711108969", message);
-    formData.append("entry.342017208_sentinel", score);
-
-    xhr.open("POST", "https://docs.google.com/forms/d/e/1FAIpQLSfT4XMewlRDUyiANUsIc3cAqNQOkwT28xCaEOaAC0q5oE6Jbw/viewform?usp=sf_link");
-    xhr.onload = function () {
-        //完成後把這些欄位清空
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('message').value = '';
-        document.getElementById('score').value = '';
-        //最後跳轉到感謝的頁面
-        //                window.location.replace("thank.html");
-        alert("THANK YOU!!!")
-    };
-    xhr.send(formData);
-    //        }
+  fetch(`https://docs.google.com/forms/d/e/${FORM_ID}/formResponse?${new URLSearchParams(query)}`, {
+    method: 'POST',
+    mode: 'no-cors', // Google 只接受 'no-cors' 模式
+  })
+    .then(() => {
+      // 完成后清空表单字段
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('message').value = '';
+      document.getElementById('score').value = '';
+      score = 0;
+      alert("THANK YOU!!!");
+    })
+    .catch(() => {
+      // 提交失败时处理
+    });
 });
