@@ -130,7 +130,7 @@ gsap.fromTo(
             start: "5%", // 触发动画的位置
             end: "35%", // 结束动画的位置
             scrub: true, // 使动画与滚动同步
-//            markers: true, // 启用标记以显示滚动位置和触发点
+            //            markers: true, // 启用标记以显示滚动位置和触发点
         },
     }
 );
@@ -138,3 +138,51 @@ gsap.fromTo(
 
 
 
+
+//記錄評價的數值
+const rating = document.querySelectorAll('input[name="score"]');
+console.log(rating);
+let score = 0;
+rating.forEach(input => {
+    input.addEventListener('click', function () {
+        // 当点击时，将选中的值存储在 score 变量中
+        score = this.value;
+        //        console.log('Selected score:', score);
+    });
+});
+
+//聯繫我表單傳送至google form
+document.getElementById('googleForm').addEventListener('submit', function (e) {
+    e.preventDefault(); //阻擋默認事件
+
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+
+    console.log(name);
+    console.log(email);
+    console.log(message);
+    console.log(score);
+
+    //        if (name && score) {
+    var xhr = new XMLHttpRequest();
+    var formData = new FormData();
+    formData.append("entry.670740193", name);
+    formData.append("entry.905490443", email);
+    formData.append("entry.711108969", message);
+    formData.append("entry.342017208_sentinel", score);
+
+    xhr.open("POST", "https://docs.google.com/forms/d/e/1FAIpQLSfT4XMewlRDUyiANUsIc3cAqNQOkwT28xCaEOaAC0q5oE6Jbw/viewform?usp=sf_link");
+    xhr.onload = function () {
+        //完成後把這些欄位清空
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('message').value = '';
+        document.getElementById('score').value = '';
+        //最後跳轉到感謝的頁面
+        //                window.location.replace("thank.html");
+        alert("THANK YOU!!!")
+    };
+    xhr.send(formData);
+    //        }
+});

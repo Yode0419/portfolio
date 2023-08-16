@@ -13,6 +13,7 @@
         gtag('js', new Date());
 
         gtag('config', 'G-ERZYSBJKEX');
+
     </script>
     <!-- End Google tag (gtag.js) -->
 
@@ -220,6 +221,9 @@
         </div>
     </div>
 
+
+
+
     <div class="section section3" id="section3">
         <div class="container">
             <div class="row sectionTitle">
@@ -231,10 +235,19 @@
                 </div>
                 <div class="col-lg-5 p4" style="border: 1px solid white">
 
-                    <form action="https://formsubmit.co/el/dabano" method="POST">
-                        <input type="text" name="name" placeholder="Full Name" required>
-                        <input type="email" name="email" placeholder="Email Address" required>
-                        <textarea name="message" placeholder="Your Message" required></textarea>
+                    <form id="googleForm">
+                        <input id="name" type="text" name="name" placeholder="Full Name" required>
+                        <input id="email" type="email" name="email" placeholder="Email Address">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        <div class="rating">
+                           Rating :
+                            <input id="score1" type="radio" name="score" value="1">
+                            <input id="score2" type="radio" name="score" value="2">
+                            <input id="score3" type="radio" name="score" value="3">
+                            <input id="score4" type="radio" name="score" value="4">
+                            <input id="score5" type="radio" name="score" value="5">
+                        </div>
+
                         <button type="submit">Submit Form</button>
                     </form>
 
@@ -244,6 +257,10 @@
 
         </div>
     </div>
+
+
+
+
 
 
     <footer class="footer">
@@ -311,4 +328,6 @@
     <script src="js/main.js" type="module"></script>
     <script src="js/lottieIcon.js"></script>
 
-</body></html>
+</body>
+
+</html>
