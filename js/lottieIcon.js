@@ -42,6 +42,7 @@ lottie.loadAnimation({
 
 const submitBtn = document.getElementById('submitBtn');
 const confetti = document.getElementById('confetti'); // 將其添加到適當的容器中
+const form = document.getElementById('googleForm'); // 取得表單元素
 
 // 設置動畫配置
 const animationConfig = {
@@ -56,13 +57,19 @@ const animationConfig = {
 const animation = lottie.loadAnimation(animationConfig);
 
 // 按鈕點擊事件處理
-submitBtn.addEventListener('click', () => {
-    // 開始播放動畫
-    confetti.style.zIndex = '1'; // 動畫移動到最上層
-    animation.goToAndPlay(0, true);
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    if (form.checkValidity()) {
+        confetti.style.zIndex = '1';
 
+        setTimeout(() => {
+            animation.goToAndPlay(0, true);
+        }, 1000); // 等待1秒，然後播放動畫
+    }
 });
 
 animation.addEventListener('complete', () => {
-    confetti.style.zIndex = '-1'; // 還原 z-index
+    animation.goToAndStop(0);
+    confetti.style.zIndex = '-1';
 });
