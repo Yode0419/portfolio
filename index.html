@@ -13,7 +13,6 @@
         gtag('js', new Date());
 
         gtag('config', 'G-ERZYSBJKEX');
-
     </script>
     <!-- End Google tag (gtag.js) -->
 
@@ -230,25 +229,31 @@
                 <h1>聯絡我</h1>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-5 p-4" style="border: 1px solid white">
+                <div class="col-lg-5 p-4" style="border: 1px solid grey">
                     <div>Contact me</div>
                 </div>
-                <div class="col-lg-5 p4" style="border: 1px solid white">
+                <div class="col-lg-5 p4">
 
                     <form id="googleForm">
-                        <input id="name" type="text" name="name" placeholder="Full Name" required>
-                        <input id="email" type="email" name="email" placeholder="Email Address">
-                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        <input id="name" type="text" name="name" placeholder="名字" required>
+                        <input id="email" type="email" name="email" placeholder="Email">
+                        <textarea id="message" name="message" placeholder="留言" required></textarea>
+
                         <div class="rating">
-                           Rating :
-                            <input id="score1" type="radio" name="score" value="1">
-                            <input id="score2" type="radio" name="score" value="2">
-                            <input id="score3" type="radio" name="score" value="3">
-                            <input id="score4" type="radio" name="score" value="4">
-                            <input id="score5" type="radio" name="score" value="5">
+                            <div class="ratingText">
+                                評審請給分✨ :
+                            </div>
+                            <div class="ratingStar">
+                                <input id="score1" type="radio" name="score" value="5"><label for="score1"></label>
+                                <input id="score2" type="radio" name="score" value="4"><label for="score2"></label>
+                                <input id="score3" type="radio" name="score" value="3"><label for="score3"></label>
+                                <input id="score4" type="radio" name="score" value="2"><label for="score4"></label>
+                                <input id="score5" type="radio" name="score" value="1"><label for="score5"></label>
+                            </div>
                         </div>
 
-                        <button id="submitBtn" type="submit">Submit Form~</button>
+                        <button id="submitBtn" type="submit">送出</button>
+                        <div id="confetti" class="confetti"></div>
                     </form>
 
                 </div>
@@ -328,6 +333,4 @@
     <script src="js/main.js" type="module"></script>
     <script src="js/lottieIcon.js"></script>
 
-</body>
-
-</html>
+</body></html>
