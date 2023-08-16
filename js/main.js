@@ -143,42 +143,43 @@ gsap.fromTo(
 const rating = document.querySelectorAll('input[name="score"]');
 let score = 0;
 rating.forEach(input => {
-  input.addEventListener('click', function () {
-    score = this.value;
-  });
+    input.addEventListener('click', function () {
+        score = this.value;
+    });
 });
 
 // 联系我表单提交至 Google Form
 document.getElementById('googleForm').addEventListener('submit', function (e) {
-  e.preventDefault(); // 阻止默认事件
+    e.preventDefault(); // 阻止默认事件
 
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
 
-  const FORM_ID = '1FAIpQLSfT4XMewlRDUyiANUsIc3cAqNQOkwT28xCaEOaAC0q5oE6Jbw';
-  const query = {
-    'entry.670740193': name,
-    'entry.905490443': email,
-    'entry.711108969': message,
-    'entry.342017208': score,
-    'submit': 'SUBMIT' // 添加 submit 参数
-  };
+    const FORM_ID = '1FAIpQLSfT4XMewlRDUyiANUsIc3cAqNQOkwT28xCaEOaAC0q5oE6Jbw';
+    const query = {
+        'entry.670740193': name,
+        'entry.905490443': email,
+        'entry.711108969': message,
+        'entry.342017208': score,
+        'submit': 'SUBMIT' // 添加 submit 参数
+    };
 
-  fetch(`https://docs.google.com/forms/d/e/${FORM_ID}/formResponse?${new URLSearchParams(query)}`, {
-    method: 'POST',
-    mode: 'no-cors', // Google 只接受 'no-cors' 模式
-  })
-    .then(() => {
-      // 完成后清空表单字段
-      document.getElementById('name').value = '';
-      document.getElementById('email').value = '';
-      document.getElementById('message').value = '';
-      document.getElementById('score').value = '';
-      score = 0;
-      alert("THANK YOU!!!");
-    })
-    .catch(() => {
-      // 提交失败时处理
-    });
+    fetch(`https://docs.google.com/forms/d/e/${FORM_ID}/formResponse?${new URLSearchParams(query)}`, {
+            method: 'POST',
+            mode: 'no-cors', // Google 只接受 'no-cors' 模式
+        })
+        .then(() => {
+            // 完成后清空表单字段
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+            document.getElementById('score').value = '';
+            score = 0;
+             // 完成后重定向到感谢页面
+            window.location.href = 'thank_you.html';
+        })
+        .catch(() => {
+            // 提交失败时处理
+        });
 });
