@@ -262,7 +262,7 @@ body {
 
 .welcomePage {
     text-align: center;
-    /*          scroll-snap-align: none;*/
+    scroll-snap-align: end;
 }
 
 .welcomePage .P1 {
@@ -358,6 +358,7 @@ body {
 
 
     scroll-snap-align: start;
+/*    scroll-snap-align: end;*/
 }
 
 @media (max-width: 576px) {
