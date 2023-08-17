@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Scroll Example</title>
+    <!--    <link rel="stylesheet" href="styles.css">  引入 CSS 樣式表 -->
+    <style>
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            transition: background-color 0.3s;
+        }
+
+        #section1 {
+            background-color: lightgray;
+        }
+
+        #section2 {
+            background-color: lightblue;
+        }
+
+        #section3 {
+            background-color: lightgreen;
+        }
+
+        #section4 {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="section1">Section 1 Content</section>
+    <section id="section2">Section 2 Content</section>
+    <section id="section3">Section 3 Content</section>
+    <section id="section4">Section 4 Content</section>
+
+    <!-- GSAP-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js" integrity="sha512-tHvUcUQYi35zApvAa5TNR3fNhBQkVtkmWKfacnpxmix4/VTGz1lGjIVyLMp7gLgAvg+aKJjnVKokXJNS5GZ+/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+-->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const sections = document.querySelectorAll("section");
+
+        sections.forEach((section, index) => {
+            // 設定每個 section 的點擊事件，捲動到下一個 section
+            section.addEventListener("click", () => {
+                gsap.to(window, {
+                    scrollTo: {
+                        y: section.offsetTop,
+                        autoKill: false
+                    },
+                    duration: 1,
+                    ease: "power1.inOut"
+                });
+            });
+
+            // 設定 ScrollTrigger，當 section 頂部進入視窗時，將其頂部對齊視窗頂部
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top center",
+                onEnter: () => {
+                    gsap.to(window, {
+                        scrollTo: {
+                            y: section.offsetTop,
+                            autoKill: false
+                        },
+                        duration: 1,
+                        ease: "power1.inOut"
+                    });
+                }
+            });
+        });
+    </script>
+
+</body></html>

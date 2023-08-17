@@ -60,8 +60,8 @@ fetch("./js/language.json")
             currentLanguage = "en";
             updatePageLanguage(langData, currentLanguage);
         });
-    
-    
+
+
         // 更新頁面語言
         //    console.log(langData);
         function updatePageLanguage(data, lang) {
@@ -134,9 +134,29 @@ function render() {
     bgContext.canvas.width = bgImages[0].width;
     bgContext.canvas.height = bgImages[0].height;
     bgContext.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+
+    //    // 計算透明度
+    //    const opacity = 1;
+
+    // 設定透明度
+    if (bg.frame >= frameCount - 5) {
+        // 如果是最後五張圖，透明度遞減
+        const opacityDecrease = (frameCount - bg.frame - 1) / 5;
+        bgContext.globalAlpha = opacityDecrease;
+        console.log('變透明!' + bgContext.globalAlpha);
+    } else {
+        // 其他圖像保持透明度為100%
+        bgContext.globalAlpha = 1;
+    }
+
+    // 繪製圖像
     bgContext.drawImage(bgImages[bg.frame], 0, 0);
+
+    // 還原透明度
+    bgContext.globalAlpha = 1;
     console.log(bg.frame);
 }
+
 
 function playAnimationAndScroll() {
     const currentFrameNumber = bg.frame;
@@ -164,9 +184,7 @@ function playAnimationAndScroll() {
         onUpdate: render,
         onComplete: () => {
             // 播放完动画后，直接跳转到第二部分，无需平滑滚动
-            const targetSection0 = document.getElementById("section0");
             const targetSection1 = document.getElementById("section1");
-            targetSection0.scrollIntoView();
             //            document.documentElement.style.scrollBehavior = "smooth";
             targetSection1.scrollIntoView();
         },
@@ -198,6 +216,11 @@ gsap.fromTo(
 
 
 
+
+
+
+
+
 //GSAP飛入淡入動畫
 const sections = document.querySelectorAll('.section');
 
@@ -217,12 +240,13 @@ sections.forEach((section, index) => {
         container, {
             y: 0,
             opacity: 1,
-            duration: 1.2,
+            duration: 1.5,
             ease: 'power2.easeInOut',
             scrollTrigger: {
                 trigger: section,
                 start: "top 90%",
                 toggleActions: "play none none reset",
+//                markers: true,
             },
         }
     );
@@ -237,11 +261,12 @@ sections.forEach((section, index) => {
             card, {
                 opacity: 1,
                 x: 0,
-                duration: 1.2,
+                duration: 1,
                 scrollTrigger: {
                     trigger: card,
-                    start: "top 100%",
+                    start: "0 100%",
                     toggleActions: "play none none reset",
+//                  markers: true,
                 },
             }
         );
@@ -256,7 +281,7 @@ sections.forEach((section, index) => {
         aboutMe1, {
             x: 0,
             opacity: 1,
-            duration: 1.2,
+            duration: 1.5,
             scrollTrigger: {
                 trigger: section,
                 start: "top 90%",
@@ -274,7 +299,7 @@ sections.forEach((section, index) => {
         aboutMe2, {
             x: 0,
             opacity: 1,
-            duration: 1.2,
+            duration: 1.5,
             scrollTrigger: {
                 trigger: section,
                 start: "top 90%",
@@ -284,6 +309,9 @@ sections.forEach((section, index) => {
     );
 
 });
+
+
+
 
 
 
