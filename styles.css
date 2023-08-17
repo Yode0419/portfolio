@@ -563,11 +563,11 @@ body {
 }
 
 .aboutMe1 {
-    /*    background-color: brown;*/
+    background-color: brown;
 }
 
 .aboutMe2 {
-    /*    background-color: brown;*/
+    background-color: brown;
     height: 100%;
     display: flex;
     flex-direction: column;

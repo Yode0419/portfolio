@@ -127,13 +127,115 @@ gsap.fromTo(
         opacity: 0, // 结束透明度为 0
         scrollTrigger: {
             trigger: ".welcomePage", // 触发滚动的元素
-            start: "5%", // 触发动画的位置
-            end: "35%", // 结束动画的位置
+            start: "10% 50%", // 触发动画的位置
+            end: "30% 100%", // 结束动画的位置
             scrub: true, // 使动画与滚动同步
-            //            markers: true, // 启用标记以显示滚动位置和触发点
+            //                        markers: true, // 启用标记以显示滚动位置和触发点
         },
     }
 );
+
+
+const sections = document.querySelectorAll('.section');
+
+sections.forEach((section, index) => {
+
+    const container = section.querySelector('.container');
+    const cards = section.querySelectorAll('.card');
+
+    gsap.set(container, {
+        y: 150,
+        opacity: 0
+    });
+
+
+
+    gsap.to(
+        container, {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power2.easeInOut',
+            scrollTrigger: {
+                trigger: section,
+                start: "top 90%",
+                //                markers: true,
+                toggleActions: "play none none reset",
+            },
+        }
+    );
+
+    cards.forEach(card => {
+        gsap.set(cards, {
+            x: 50,
+            opacity: 0
+        });
+
+        gsap.to(
+            card, {
+                opacity: 1,
+                x: 0,
+                duration: 1.2, // 將 card 的動畫時間設定為 3 秒
+                //                ease: 'power2.easeInOut', // 使用相同的緩動效果
+                scrollTrigger: {
+                    trigger: card,
+                    start: "bot 100%", // 調整飛入的觸發位置
+//                    markers: true,
+                    toggleActions: "play none none reset",
+                },
+            }
+        );
+    });
+
+    const aboutMe1 = section.querySelectorAll('.aboutMe1');
+    const aboutMe2 = section.querySelectorAll('.aboutMe2');
+
+    gsap.set(aboutMe1, {
+        x: -50,
+        opacity: 0
+    });
+
+    gsap.to(
+        aboutMe1, {
+            x: 0,
+            opacity: 1,
+            duration: 1.2,
+//            ease: 'power2.easeInOut',
+            scrollTrigger: {
+                trigger: section,
+                start: "top 90%",
+                //                markers: true,
+                toggleActions: "play none none reset",
+            },
+        }
+    );
+    
+    gsap.set(aboutMe2, {
+        x: 50,
+        opacity: 0
+    });
+
+    gsap.to(
+        aboutMe2, {
+            x: 0,
+            opacity: 1,
+            duration: 1.2,
+//            ease: 'power2.easeInOut',
+            scrollTrigger: {
+                trigger: section,
+                start: "top 90%",
+                //                markers: true,
+                toggleActions: "play none none reset",
+            },
+        }
+    );
+
+
+});
+
+
+
+
 
 
 
