@@ -242,11 +242,13 @@ sections.forEach((section, index) => {
             scrollTrigger: {
                 trigger: section,
                 start: "top 90%",
+//                end: "bot 10%",
                 toggleActions: "play none none reset",
 //                markers: true,
             },
         }
     );
+    
 
     cards.forEach(card => {
         gsap.set(card, {
@@ -262,7 +264,7 @@ sections.forEach((section, index) => {
                 scrollTrigger: {
                     trigger: card,
                     start: "0 100%",
-                    toggleActions: "play none none reset",
+                    toggleActions: "play none none none",
 //                  markers: true,
                 },
             }
@@ -282,7 +284,7 @@ sections.forEach((section, index) => {
             scrollTrigger: {
                 trigger: section,
                 start: "top 90%",
-                toggleActions: "play none none reset",
+                toggleActions: "play none none none",
             },
         }
     );
@@ -300,7 +302,7 @@ sections.forEach((section, index) => {
             scrollTrigger: {
                 trigger: section,
                 start: "top 90%",
-                toggleActions: "play none none reset",
+                toggleActions: "play none none none",
             },
         }
     );
