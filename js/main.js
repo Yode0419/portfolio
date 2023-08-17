@@ -98,6 +98,7 @@ fetch("./js/language.json")
 
 //歡迎頁面捲動動畫
 const bgCanvas = document.querySelector(".bgCanvas");
+const scrollToHide =document.querySelector(".scrollToHide");
 bgCanvas.width = window.innerWidth;
 bgCanvas.height = window.innerHeight;
 const bgContext = bgCanvas.getContext("2d");
@@ -143,7 +144,7 @@ function render() {
         // 如果是最後五張圖，透明度遞減
         const opacityDecrease = (frameCount - bg.frame - 1) / 5;
         bgContext.globalAlpha = opacityDecrease;
-        console.log('變透明!' + bgContext.globalAlpha);
+//        console.log('變透明!' + bgContext.globalAlpha);
     } else {
         // 其他圖像保持透明度為100%
         bgContext.globalAlpha = 1;
@@ -163,15 +164,11 @@ function playAnimationAndScroll() {
     const durationTime = 2.5 * (1 - currentFrameNumber / frameCount);
     console.log('duration:Time' + durationTime);
 
-    //    //暫時禁用頁面捲動smooth
-    //    if (currentFrameNumber < frameCount - 1) {
-    //        document.documentElement.style.scrollBehavior = "auto";
-    //    }
 
     // 淡出 .scrollToHide 元素
     const durationTimeOfHide = Math.max(0, 2.5 * (45 - currentFrameNumber) / frameCount);
     console.log('durationTimeOfHide:' + durationTimeOfHide);
-    gsap.to(".scrollToHide", {
+    gsap.to(scrollToHide, {
         opacity: 0,
         duration: durationTimeOfHide, // 根据您的需求调整淡出的时间
     });
@@ -183,7 +180,7 @@ function playAnimationAndScroll() {
         duration: durationTime,
         onUpdate: render,
         onComplete: () => {
-            // 播放完动画后，直接跳转到第二部分，无需平滑滚动
+            // 播放完动画后，直接跳转到下一部分
             const targetSection1 = document.getElementById("section1");
             //            document.documentElement.style.scrollBehavior = "smooth";
             targetSection1.scrollIntoView();
@@ -200,7 +197,7 @@ arrowDownButton.addEventListener("click", playAnimationAndScroll);
 
 // 使用 fromTo 方法来实现淡出动画并显示标记
 gsap.fromTo(
-    ".scrollToHide", {
+    scrollToHide, {
         opacity: 1, // 起始透明度为 1
     }, {
         opacity: 0, // 结束透明度为 0

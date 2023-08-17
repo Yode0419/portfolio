@@ -7,12 +7,14 @@
 
 html {
     /*    scroll-behavior: smooth;*/
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 4.5rem;
 }
 
 body {
     background-color: #1F2123;
     color: white;
-/*    scroll-snap-type: y mandatory;*/
+    /*    scroll-snap-type: y mandatory;*/
 }
 
 
@@ -20,7 +22,7 @@ body {
     width: 100%;
     height: 100vh;
     background-color: rgba(83, 98, 0, 0.22);
-    position:fixed;
+    position: fixed;
     z-index: -1;
 }
 
@@ -253,14 +255,14 @@ body {
 .bgCanvas {
     width: 100%;
     height: 100vh;
-    /*    border: 2px solid white;*/
+    /*        border: 2px solid white;*/
     object-fit: cover;
-  
+
 }
 
 .welcomePage {
     text-align: center;
-/*          scroll-snap-align: none;*/
+    /*          scroll-snap-align: none;*/
 }
 
 .welcomePage .P1 {
@@ -349,13 +351,13 @@ body {
 /*SECTION--START--*/
 .section {
     min-height: 80vh;
-    padding-top: 4.5rem;
+    /*    padding-top: 4.5rem;*/
     margin-bottom: 30vh;
     position: relative;
     z-index: 10;
-    
 
-/*    scroll-snap-align: start;*/
+
+    scroll-snap-align: start;
 }
 
 @media (max-width: 576px) {
@@ -681,7 +683,7 @@ body {
 /*CONTACT ME--START--*/
 
 .section3 {
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 .contactMeText {
@@ -820,6 +822,7 @@ textarea {
     position: relative;
     background-color: #1F2123;
     border-top: 1px solid rgba(170, 170, 170, 0.15);
+    scroll-snap-align: end;
 }
 
 .footer .footerHero {

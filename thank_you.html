@@ -4,8 +4,66 @@
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .section {
+        height: 120vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 5rem;
+    }
+
+    .s1 {
+        background-color: aquamarine;
+
+    }
+
+    .s2 {
+        background-color: burlywood;
+
+    }
+
+    .s3 {
+        background-color: coral;
+    }
+</style>
+
 <body>
-    <h1>THANK YOU!!</h1>
-    <a href="./index.html">back to homepage</a>
-</body>
-</html>
+    <div class="section s1">section 1</div>
+    <div class="section s2">section 2</div>
+    <div class="section s3">section 3</div>
+
+
+
+
+    <script>
+        const s2 = document.querySelector(".s2");
+let timeoutId = null;
+
+window.addEventListener('scroll', function() {
+    clearTimeout(timeoutId); // 清除之前的計時器
+    
+    timeoutId = setTimeout(function() {
+        const windowHeight = window.innerHeight; // 取得視窗高度
+        const sections = document.querySelectorAll('.section'); // 選取所有的section元素
+        
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top; // 取得section頂緣相對於視窗的位置
+            
+            if (Math.abs(sectionTop) <= windowHeight * 0.3) {
+                const scrollToPosition = window.scrollY + sectionTop;
+                window.scrollTo({ top: scrollToPosition, behavior: 'smooth', block: 'start', inline: 'nearest' });
+            }
+        });
+    }, 500); // 0.5秒延遲後執行
+});
+
+    </script>
+</body></html>
