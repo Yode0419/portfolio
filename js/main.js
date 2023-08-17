@@ -230,7 +230,7 @@ sections.forEach((section, index) => {
 
     gsap.set(container, {
         y: 150,
-        opacity: 0
+        opacity: 1
     });
 
     gsap.to(
@@ -250,67 +250,64 @@ sections.forEach((section, index) => {
     );
 
 
-    cards.forEach(card => {
-        gsap.set(card, {
-            x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
-            opacity: 0
-        });
-
-        gsap.to(
-            card, {
-                opacity: 1,
-                x: 0,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: card,
-                    start: "0 100%",
-                    toggleActions: "play none none none",
-                    //                  markers: true,
-                },
-            }
-        );
-    });
-
-    gsap.set(aboutMe1, {
-        x: window.innerWidth < 768 ? 0 : -50, // 螢幕寬度小於 768px 時設為 0，否則設為 -50
-        opacity: 0
-    });
-
-    gsap.to(
-        aboutMe1, {
-            x: 0,
-            opacity: 1,
-            duration: 1.5,
-            scrollTrigger: {
-                trigger: section,
-                start: "top 90%",
-                toggleActions: "play none none none",
-            },
-        }
-    );
-
-    gsap.set(aboutMe2, {
-        x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
-        opacity: 0
-    });
-
-    gsap.to(
-        aboutMe2, {
-            x: 0,
-            opacity: 1,
-            duration: 1.5,
-            scrollTrigger: {
-                trigger: section,
-                start: "top 90%",
-                toggleActions: "play none none none",
-            },
-        }
-    );
+//    cards.forEach(card => {
+//        gsap.set(card, {
+//            x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
+//            opacity: 1
+//        });
+//
+//        gsap.to(
+//            card, {
+//                opacity: 1,
+//                x: 0,
+//                duration: 1,
+//                scrollTrigger: {
+//                    trigger: card,
+//                    start: "0 100%",
+//                    toggleActions: "play none none reset",
+//                    //                  markers: true,
+//                },
+//            }
+//        );
+//    });
+//
+//    gsap.set(aboutMe1, {
+//        x: window.innerWidth < 768 ? 0 : -50, // 螢幕寬度小於 768px 時設為 0，否則設為 -50
+//        opacity: 1
+//    });
+//
+//    gsap.to(
+//        aboutMe1, {
+//            x: 0,
+//            opacity: 1,
+//            duration: 1.5,
+//            scrollTrigger: {
+//                trigger: section,
+//                start: "top 90%",
+//                toggleActions: "play none none none",
+//            },
+//        }
+//    );
+//
+//    gsap.set(aboutMe2, {
+//        x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
+//        opacity: 0
+//    });
+//
+//    gsap.to(
+//        aboutMe2, {
+//            x: 0,
+//            opacity: 1,
+//            duration: 1.5,
+//            scrollTrigger: {
+//                trigger: section,
+//                start: "top 90%",
+//                toggleActions: "play none none none",
+//            },
+//        }
+//    );
 
 });
-
-
-
 
 
 
