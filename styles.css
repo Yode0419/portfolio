@@ -6,14 +6,13 @@
 }
 
 html {
-    scroll-behavior: smooth;
+/*    scroll-behavior: smooth;*/
 }
 
 body {
     background-color: #1F2123;
     color: white;
 }
-
 
 
 
@@ -275,6 +274,7 @@ body {
 }
 
 .textOverlay {
+    color: #DADADA;
     position: fixed;
     top: 75%;
     left: 50%;
@@ -563,11 +563,11 @@ body {
 }
 
 .aboutMe1 {
-    background-color: brown;
+/*    background-color: brown;*/
 }
 
 .aboutMe2 {
-    background-color: brown;
+/*    background-color: brown;*/
     height: 100%;
     display: flex;
     flex-direction: column;

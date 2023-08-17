@@ -82,10 +82,10 @@ function playAnimationAndScroll() {
     const durationTime = 2.5 * (1 - currentFrameNumber / frameCount);
     console.log('duration:Time' + durationTime);
 
-    //暫時禁用頁面捲動smooth
-    if (currentFrameNumber < frameCount - 1) {
-        document.documentElement.style.scrollBehavior = "auto";
-    }
+//    //暫時禁用頁面捲動smooth
+//    if (currentFrameNumber < frameCount - 1) {
+//        document.documentElement.style.scrollBehavior = "auto";
+//    }
 
     // 淡出 .scrollToHide 元素
     const durationTimeOfHide = Math.max(0, 2.5 * (45 - currentFrameNumber) / frameCount);
@@ -106,7 +106,7 @@ function playAnimationAndScroll() {
             const targetSection0 = document.getElementById("section0");
             const targetSection1 = document.getElementById("section1");
             targetSection0.scrollIntoView();
-            document.documentElement.style.scrollBehavior = "smooth";
+//            document.documentElement.style.scrollBehavior = "smooth";
             targetSection1.scrollIntoView();
         },
     });
@@ -136,19 +136,21 @@ gsap.fromTo(
 );
 
 
+
+//GSAP飛入淡入動畫
 const sections = document.querySelectorAll('.section');
 
 sections.forEach((section, index) => {
 
     const container = section.querySelector('.container');
     const cards = section.querySelectorAll('.card');
-
+    const aboutMe1 = section.querySelectorAll('.aboutMe1');
+    const aboutMe2 = section.querySelectorAll('.aboutMe2');
+    
     gsap.set(container, {
         y: 150,
         opacity: 0
     });
-
-
 
     gsap.to(
         container, {
@@ -159,15 +161,14 @@ sections.forEach((section, index) => {
             scrollTrigger: {
                 trigger: section,
                 start: "top 90%",
-                //                markers: true,
                 toggleActions: "play none none reset",
             },
         }
     );
 
     cards.forEach(card => {
-        gsap.set(cards, {
-            x: 50,
+        gsap.set(card, {
+            x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
             opacity: 0
         });
 
@@ -175,23 +176,18 @@ sections.forEach((section, index) => {
             card, {
                 opacity: 1,
                 x: 0,
-                duration: 1.2, // 將 card 的動畫時間設定為 3 秒
-                //                ease: 'power2.easeInOut', // 使用相同的緩動效果
+                duration: 1.2,
                 scrollTrigger: {
                     trigger: card,
-                    start: "bot 100%", // 調整飛入的觸發位置
-//                    markers: true,
+                    start: "top 100%",
                     toggleActions: "play none none reset",
                 },
             }
         );
     });
 
-    const aboutMe1 = section.querySelectorAll('.aboutMe1');
-    const aboutMe2 = section.querySelectorAll('.aboutMe2');
-
     gsap.set(aboutMe1, {
-        x: -50,
+        x: window.innerWidth < 768 ? 0 : -50, // 螢幕寬度小於 768px 時設為 0，否則設為 -50
         opacity: 0
     });
 
@@ -200,18 +196,16 @@ sections.forEach((section, index) => {
             x: 0,
             opacity: 1,
             duration: 1.2,
-//            ease: 'power2.easeInOut',
             scrollTrigger: {
                 trigger: section,
                 start: "top 90%",
-                //                markers: true,
                 toggleActions: "play none none reset",
             },
         }
     );
     
     gsap.set(aboutMe2, {
-        x: 50,
+        x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
         opacity: 0
     });
 
@@ -220,16 +214,13 @@ sections.forEach((section, index) => {
             x: 0,
             opacity: 1,
             duration: 1.2,
-//            ease: 'power2.easeInOut',
             scrollTrigger: {
                 trigger: section,
                 start: "top 90%",
-                //                markers: true,
                 toggleActions: "play none none reset",
             },
         }
     );
-
 
 });
 
@@ -240,8 +231,7 @@ sections.forEach((section, index) => {
 
 
 
-
-// 记录评价的数值
+// 紀錄評價的數值
 const rating = document.querySelectorAll('input[name="score"]');
 let score = 0;
 rating.forEach(input => {
@@ -250,7 +240,7 @@ rating.forEach(input => {
     });
 });
 
-// 联系我表单提交至 Google Form
+//聯繫我表單提交至Google Form
 document.getElementById('googleForm').addEventListener('submit', function (e) {
     e.preventDefault(); // 阻止默认事件
 
