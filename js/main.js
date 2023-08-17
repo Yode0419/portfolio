@@ -98,7 +98,7 @@ fetch("./js/language.json")
 
 //歡迎頁面捲動動畫
 const bgCanvas = document.querySelector(".bgCanvas");
-const scrollToHide =document.querySelector(".scrollToHide");
+const scrollToHide = document.querySelector(".scrollToHide");
 bgCanvas.width = window.innerWidth;
 bgCanvas.height = window.innerHeight;
 const bgContext = bgCanvas.getContext("2d");
@@ -144,7 +144,7 @@ function render() {
         // 如果是最後五張圖，透明度遞減
         const opacityDecrease = (frameCount - bg.frame - 1) / 5;
         bgContext.globalAlpha = opacityDecrease;
-//        console.log('變透明!' + bgContext.globalAlpha);
+        //        console.log('變透明!' + bgContext.globalAlpha);
     } else {
         // 其他圖像保持透明度為100%
         bgContext.globalAlpha = 1;
@@ -242,13 +242,13 @@ sections.forEach((section, index) => {
             scrollTrigger: {
                 trigger: section,
                 start: "top 90%",
-//                end: "bot 10%",
+                //                end: "bot 10%",
                 toggleActions: "play none none reset",
-//                markers: true,
+                //                markers: true,
             },
         }
     );
-    
+
 
     cards.forEach(card => {
         gsap.set(card, {
@@ -265,7 +265,7 @@ sections.forEach((section, index) => {
                     trigger: card,
                     start: "0 100%",
                     toggleActions: "play none none none",
-//                  markers: true,
+                    //                  markers: true,
                 },
             }
         );
@@ -308,8 +308,6 @@ sections.forEach((section, index) => {
     );
 
 });
-
-
 
 
 
