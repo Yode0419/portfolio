@@ -35,6 +35,67 @@ document.addEventListener('click', event => {
 
 
 
+
+
+////中英切換
+//// 載入 language.json 檔案
+fetch("./js/language.json")
+    .then(response => response.json())
+    .then(langData => {
+        // 預設語言為中文
+        let currentLanguage = "zh";
+
+        // 切換語言的事件處理程序
+        const langZhBtn = document.getElementById("langZh");
+        const langEnBtn = document.getElementById("langEn");
+
+        langZhBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // 阻止點擊事件的預設行為
+            currentLanguage = "zh";
+            updatePageLanguage(langData, currentLanguage);
+        });
+
+        langEnBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // 阻止點擊事件的預設行為
+            currentLanguage = "en";
+            updatePageLanguage(langData, currentLanguage);
+        });
+    
+    
+        // 更新頁面語言
+        //    console.log(langData);
+        function updatePageLanguage(data, lang) {
+            Object.keys(data[lang]).forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    const newValue = data[lang][id];
+
+                    // 判斷是否是 input 元素或 textarea 元素且具有 placeholder 屬性
+                    if ((element.tagName === "INPUT" || element.tagName === "TEXTAREA") &&
+                        element.hasAttribute("placeholder")) {
+                        element.setAttribute("placeholder", newValue);
+                    } else {
+                        element.innerHTML = newValue;
+                    }
+
+                    // 取消 <p> 標籤的左右對齊（僅適用於英文語言）
+                    if (lang === "en" && element.tagName === "P") {
+                        element.style.textAlign = "left"; // 或者設定其他適當的對齊方式
+                    }
+                }
+            });
+        }
+        // 頁面載入時初始更新語言
+        updatePageLanguage(langData, currentLanguage);
+    });
+
+
+
+
+
+
+
+
 //歡迎頁面捲動動畫
 const bgCanvas = document.querySelector(".bgCanvas");
 bgCanvas.width = window.innerWidth;
@@ -82,10 +143,10 @@ function playAnimationAndScroll() {
     const durationTime = 2.5 * (1 - currentFrameNumber / frameCount);
     console.log('duration:Time' + durationTime);
 
-//    //暫時禁用頁面捲動smooth
-//    if (currentFrameNumber < frameCount - 1) {
-//        document.documentElement.style.scrollBehavior = "auto";
-//    }
+    //    //暫時禁用頁面捲動smooth
+    //    if (currentFrameNumber < frameCount - 1) {
+    //        document.documentElement.style.scrollBehavior = "auto";
+    //    }
 
     // 淡出 .scrollToHide 元素
     const durationTimeOfHide = Math.max(0, 2.5 * (45 - currentFrameNumber) / frameCount);
@@ -106,16 +167,16 @@ function playAnimationAndScroll() {
             const targetSection0 = document.getElementById("section0");
             const targetSection1 = document.getElementById("section1");
             targetSection0.scrollIntoView();
-//            document.documentElement.style.scrollBehavior = "smooth";
+            //            document.documentElement.style.scrollBehavior = "smooth";
             targetSection1.scrollIntoView();
         },
     });
 }
 
-const bgAnimationButton = document.getElementById("bgAnimationButton");
+const navPortfolioBtn = document.getElementById("navPortfolioBtn");
 const arrowDownButton = document.getElementById("arrowDown");
 
-bgAnimationButton.addEventListener("click", playAnimationAndScroll);
+navPortfolioBtn.addEventListener("click", playAnimationAndScroll);
 arrowDownButton.addEventListener("click", playAnimationAndScroll);
 
 
@@ -146,7 +207,7 @@ sections.forEach((section, index) => {
     const cards = section.querySelectorAll('.card');
     const aboutMe1 = section.querySelectorAll('.aboutMe1');
     const aboutMe2 = section.querySelectorAll('.aboutMe2');
-    
+
     gsap.set(container, {
         y: 150,
         opacity: 0
@@ -203,7 +264,7 @@ sections.forEach((section, index) => {
             },
         }
     );
-    
+
     gsap.set(aboutMe2, {
         x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
         opacity: 0

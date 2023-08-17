@@ -46,15 +46,15 @@
         <div class="navbarLink">
             <input type="checkbox" id="itemCheck">
             <div class="navbarItem">
-                <a id="bgAnimationButton">作品集</a>
-                <a href="#section2">關於我</a>
-                <a href="#section3">聯絡我</a>
+                <a id="navPortfolioBtn">作品集</a>
+                <a id="navAboutBtn" href="#section2">關於我</a>
+                <a id="navContactBtn" href="#section3">聯絡我</a>
             </div>
 
             <input type="checkbox" id="langCheck">
             <div class="langOptions">
-                <a href="">繁體中文</a>
-                <a href="">English</a>
+                <a id="langZh" href="#">繁體中文</a>
+                <a id="langEn" href="#">English</a>
             </div>
 
             <div class="navbarIcon">
@@ -81,9 +81,9 @@
                 </div>
                 <div class="row P2">
                     <div class="col">
-                        <div class="P2-1">Hi, 歡迎光臨Yode的作品集網站</div>
-                        <div class="P2-2">我喜歡燒腦🔥</div>
-                        <div class="P2-2">將靈感轉變成有趣的體驗🫠</div>
+                        <div id="welcomeP1" class="P2-1">Hi, 歡迎光臨Yode的作品集網站</div>
+                        <div id="welcomeP2" class="P2-2">我喜歡燒腦🔥</div>
+                        <div id="welcomeP3" class="P2-2">將靈感轉變成有趣的體驗🫠</div>
                     </div>
                 </div>
             </div>
@@ -95,25 +95,30 @@
 
 
     <!--   SECTION-->
-    <div class="section0" id="section0"></div>
+    <div class="section0" id="section0">
+
+    </div>
+
+
+
 
     <div class="section section1" id="section1">
         <div class="container">
             <div class="row sectionTitle">
-                <h1>作品集</h1>
+                <h1 id="section1Title">作品集</h1>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-5 p-4">
                     <div class="card">
                         <div class="cardRow1">
                             <div class="cardTitle">
-                                ROG A<span>II</span>y
+                                <p>ROG A<span>II</span>y</p>
                             </div>
                             <div class="cardImg">
                                 <img src="./img/card_rogAlly.png" alt="">
                             </div>
                         </div>
-                        <div class="cardRow2">
+                        <div id="cardDetail1" class="cardRow2">
                             下一代 ROG Ally 會是什麼樣子呢 ?
                         </div>
                         <div class="cardRow3">
@@ -136,7 +141,7 @@
                                 <img src="./img/card_Firstaid.png" alt="">
                             </div>
                         </div>
-                        <div class="cardRow2">
+                        <div id="cardDetail2" class="cardRow2">
                             跨裝置急救知識學習平台
                         </div>
                         <div class="cardRow3">
@@ -159,7 +164,7 @@
                                 <img src="./img/card_SkaterBoi.png" alt="">
                             </div>
                         </div>
-                        <div class="cardRow2">
+                        <div id="cardDetail3" class="cardRow2">
                             快速客製個人風格滑板
                         </div>
                         <div class="cardRow3">
@@ -182,7 +187,7 @@
                                 <img src="./img/card_TaipeiDomeApp.png" alt="">
                             </div>
                         </div>
-                        <div class="cardRow2">
+                        <div id="cardDetail4" class="cardRow2">
                             臺北大巨蛋客服應用
                         </div>
                         <div class="cardRow3">
@@ -205,10 +210,10 @@
                                 <!--                            IMG-->
                             </div>
                         </div>
-                        <div class="cardRow2">
+                        <div id="cardDetailForFun" class="cardRow2">
                             一些靈感與練習
                         </div>
-                        <div class="cardRow3">
+                        <div id="cardDetailForFunLittle" class="cardRow3">
                             94否放 !
                         </div>
                     </div>
@@ -220,19 +225,19 @@
     <div class="section section2" id="section2">
         <div class="container">
             <div class="row sectionTitle">
-                <h1>關於我</h1>
+                <h1 id="section2Title">關於我</h1>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-5 p-4">
                     <div class="aboutMe1">
                         <div class="profilePhoto"></div>
                         <div class="biography">
-                            <p>我是一位剛踏入UX設計領域的初心者，之前從事約六年的土木工程和結構設計工作，目前正在自學轉職成為UX設計師。<br><br>我擅長繪圖、3D建模，喜歡燒腦發想問題的解決方法並分析。以往的經驗讓我能在天馬行空的設計中，同時考慮實際可行性。<br><br>未來希望在UX設計、產品設計的領域發展，提升使用者在各個角落的體驗！</p>
+                            <p id="boigraphyText">我是一位剛踏入UX設計領域的初心者，之前從事約六年的土木工程和結構設計工作，目前正在自學轉職成為UX設計師。<br><br>我擅長繪圖、3D建模，喜歡燒腦發想問題的解決方法並分析。以往的經驗讓我能在天馬行空的設計中，同時考慮實際可行性。<br><br>未來希望在UX設計、產品設計的領域發展，提升使用者在各個角落的體驗！</p>
                         </div>
                         <div class="skill">
-                            <div class="skillTitle">技能：</div>
+                            <div id="skillTitle" class="skillTitle">技能：</div>
                             <div class="skillDetails">
-                                <p>AutoCAD,<br>Blender, Sketchup,<br>Figma, Photoshop, Illustrator,<br>HTML, CSS, JavaScript,<br>義式咖啡 ☕</p>
+                                <p id="skillDetails">AutoCAD,<br>Blender, Sketchup,<br>Figma, Photoshop, Illustrator,<br>HTML, CSS, JavaScript,<br>義式咖啡 ☕</p>
                             </div>
                         </div>
                     </div>
@@ -241,22 +246,22 @@
                     <div class="aboutMe2">
                         <!--                            <div class="experience">-->
                         <div class="exCard">
-                            <div class="exTitle">Google UX Design 專業認證</div>
+                            <div id="exTitle1" class="exTitle">Google UX Design 專業認證</div>
                             <!--                                    <div class="exDetails">GG</div>-->
                             <div class="exDate">Jun, 2023 - Aug, 2023</div>
                         </div>
                         <div class="exCard">
-                            <div class="exTitle">結構工程師</div>
-                            <div class="exDetails">林同棪工程顧問 - 結構設計/橋梁設計/專案管理</div>
+                            <div id="exTitle2" class="exTitle">結構工程師</div>
+                            <div id="exDetails2" class="exDetails">林同棪工程顧問 - 結構設計/橋梁設計/專案管理</div>
                             <div class="exDate">Sep, 2016 - Jun, 2023</div>
                         </div>
                         <div class="exCard">
-                            <div class="exTitle">澳洲 Working Holiday</div>
-                            <div class="exDetails">倉儲/郵件/農場工人</div>
+                            <div id="exTitle3" class="exTitle">澳洲 Working Holiday</div>
+                            <div id="exDetails3" class="exDetails">倉儲/郵件/農場工人</div>
                             <div class="exDate">Dec, 2019 - Dec,2020</div>
                         </div>
                         <!--                            </div>-->
-                        <button class="resume">我的履歷</button>
+                        <button id="resumeBtn" class="resume">我的履歷</button>
                     </div>
                 </div>
 
@@ -273,15 +278,15 @@
     <div class="section section3" id="section3">
         <div class="container">
             <div class="row sectionTitle">
-                <h1>聯絡我</h1>
+                <h1 id="section3Title">聯絡我</h1>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-5 p-4">
                     <div class="row justify-content-center">
                         <div class="col-lg-11">
                             <div class="contactMeText">
-                                <h2>感謝參觀👾</h2>
-                                <p>請不吝留下您的意見，我會持續更新改進這個網站，期待收到您的留言，謝謝！</p>
+                                <h2 id="thankYouText">感謝參觀👾</h2>
+                                <p id="contactMeText">請不吝留下您的意見，我會持續更新改進這個網站，期待收到您的留言，謝謝！</p>
                             </div>
                         </div>
                     </div>
@@ -290,11 +295,11 @@
 
                     <form id="googleForm">
                         <input id="name" type="text" name="name" placeholder="名字" required>
-                        <input id="email" type="email" name="email" placeholder="Email">
+                        <input id="email" type="email" name="email" placeholder="電子信箱">
                         <textarea id="message" name="message" placeholder="留言" required></textarea>
 
                         <div class="rating">
-                            <div class="ratingText">
+                            <div id="ratingText" class="ratingText">
                                 參觀體驗評分 :
                             </div>
                             <div class="ratingStar">
@@ -334,6 +339,7 @@
 
 
     </footer>
+
 
 
     <!--    雜物-->

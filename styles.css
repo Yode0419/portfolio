@@ -409,7 +409,11 @@ body {
     /* 設置卡片寬度的一半 */
     display: flex;
     align-items: center;
-    /*        background-color: #581e4d*/
+    /*            background-color: #581e4d*/
+}
+
+.card .cardRow1 p {
+    font-size: 1.75rem;
 }
 
 .card .cardRow1 .cardImg {
@@ -456,18 +460,21 @@ body {
 .card .cardRow1 span {
     font-family: "Roboto Slab";
     font-weight: 300;
-/*    font-size: 1.5rem;*/
+    /*    font-size: 1.5rem;*/
     margin: 0 0.25rem;
     text-shadow: 0 0 0.5rem #A9BAD5;
+    /*    background-color: aqua;*/
 }
 
 .card .cardRow2 {
     height: 4rem;
     width: 100%;
     margin: 1% 0;
+    color: #DADADA;
     font-size: 1.25rem;
     display: flex;
     align-items: center;
+    line-height: 1.75rem;
     /*    background-color: #28745a;*/
 }
 
@@ -499,12 +506,18 @@ body {
 
 .cardForFun .cardRow2 {
     height: 2rem;
+    line-height: 1rem;
+    line-height: 1.25rem;
 }
 
 
 
 @media (max-width: 1200px) {
     .card .cardRow1 {
+        font-size: 1.5rem;
+    }
+
+    .card .cardRow1 p {
         font-size: 1.5rem;
     }
 
@@ -547,8 +560,9 @@ body {
 .section2 .biography p {
     color: #DADADA;
     line-height: 1.5rem;
-    /*    background-color: #115f5f;*/
+    /*        background-color: #115f5f;*/
     margin-bottom: 1rem;
+    text-align: justify;
 }
 
 .section2 .skill {
@@ -605,12 +619,13 @@ body {
 .section2 .exCard .exTitle {
     font-size: 1.25rem;
     margin-bottom: 1rem;
+    line-height: 1.75rem;
 }
 
 .section2 .exCard .exDetails {
     font-size: 1rem;
     color: #DADADA;
-    margin-bottom: 0rem;
+    margin-bottom: 0.75rem;
 }
 
 .section2 .exCard .exDate {
@@ -663,6 +678,7 @@ body {
 
 .contactMeText p {
     color: #DADADA;
+    text-align: justify;
 }
 
 form {
@@ -867,6 +883,17 @@ textarea {
 /*FOOTER--END--*/
 
 
+.gif {
+    animation: gifAnimation 2s infinite;
+    /* 假設 .gif 是包含動畫的元素 */
+    animation-play-state: paused;
+    /* 初始狀態是暫停動畫 */
+}
+
+.gif:hover {
+    animation-play-state: running;
+    /* 滑鼠懸停時播放動畫 */
+}
 
 
 
