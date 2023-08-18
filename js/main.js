@@ -92,6 +92,37 @@ fetch("./js/language.json")
 
 
 
+//按導航列的按鈕時，畫面跳轉並淡入
+const welcomePage = document.querySelector('.welcomePage'); // welcome 元素
+const navAboutBtn = document.getElementById('navAboutBtn');
+const navContactBtn = document.getElementById('navContactBtn');
+const sections = document.querySelectorAll('.section'); // 所有的 section 元素
+
+
+
+navAboutBtn.addEventListener('click', function (event) {
+    event.preventDefault(); // 防止點擊時的默認行為
+    sections.forEach(section => section.style.opacity = 0); // 隱藏所有 section
+    welcomePage.style.opacity = 0; //隱藏 welcomePage
+
+    setTimeout(() => {
+        window.location.href = '#section2'; // 跳轉到目標 section
+        sections.forEach(section => section.style.opacity = 1); // 顯示所有 section
+        welcomePage.style.opacity = 1; //顯示 welcomePage
+    }, 300); // 延遲 0.3 秒後執行
+});
+
+navContactBtn.addEventListener('click', function (event) {
+    event.preventDefault(); // 防止點擊時的默認行為
+    sections.forEach(section => section.style.opacity = 0); // 隱藏所有 section
+    welcomePage.style.opacity = 0; //隱藏 welcomePage
+    
+    setTimeout(() => {
+        window.location.href = '#section3'; // 跳轉到目標 section
+        sections.forEach(section => section.style.opacity = 1); // 顯示所有 section
+        welcomePage.style.opacity = 1; //顯示 welcomePage
+    }, 300); // 延遲 0.3 秒後執行
+});
 
 
 
@@ -159,15 +190,15 @@ function render() {
 }
 
 
+//從歡迎頁按導覽列的作品集或向下箭頭按鈕時，撥放動畫後跳轉到作品集section，撥放時間是依據剩餘的frame數量而定
 function playAnimationAndScroll() {
     const currentFrameNumber = bg.frame;
     const durationTime = 2.5 * (1 - currentFrameNumber / frameCount);
     console.log('duration:Time' + durationTime);
 
-
     // 淡出 .scrollToHide 元素
     const durationTimeOfHide = Math.max(0, 2.5 * (45 - currentFrameNumber) / frameCount);
-    console.log('durationTimeOfHide:' + durationTimeOfHide);
+    //    console.log('durationTimeOfHide:' + durationTimeOfHide);
     gsap.to(scrollToHide, {
         opacity: 0,
         duration: durationTimeOfHide, // 根据您的需求调整淡出的时间
@@ -181,9 +212,13 @@ function playAnimationAndScroll() {
         onUpdate: render,
         onComplete: () => {
             // 播放完动画后，直接跳转到下一部分
+            sections.forEach(section => section.style.opacity = 0); // 隱藏所有 section
             const targetSection1 = document.getElementById("section1");
-            //            document.documentElement.style.scrollBehavior = "smooth";
-            targetSection1.scrollIntoView();
+            setTimeout(() => {
+                //            document.documentElement.style.scrollBehavior = "smooth";
+                targetSection1.scrollIntoView();
+                sections.forEach(section => section.style.opacity = 1); // 顯示所有 section
+            }, 300); // 延遲 0.3 秒後執行
         },
     });
 }
@@ -195,7 +230,7 @@ navPortfolioBtn.addEventListener("click", playAnimationAndScroll);
 arrowDownButton.addEventListener("click", playAnimationAndScroll);
 
 
-// 使用 fromTo 方法来实现淡出动画并显示标记
+//歡迎台詞， 使用 fromTo 方法来实现淡出动画并显示标记
 gsap.fromTo(
     scrollToHide, {
         opacity: 1, // 起始透明度为 1
@@ -218,96 +253,97 @@ gsap.fromTo(
 
 
 
+
 //GSAP飛入淡入動畫
-const sections = document.querySelectorAll('.section');
-
-sections.forEach((section, index) => {
-
-    const container = section.querySelector('.container');
-    const cards = section.querySelectorAll('.card');
-    const aboutMe1 = section.querySelectorAll('.aboutMe1');
-    const aboutMe2 = section.querySelectorAll('.aboutMe2');
-
-    gsap.set(container, {
-        y: 150,
-        opacity: 1
-    });
-
-    gsap.to(
-        container, {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: 'power2.easeInOut',
-            scrollTrigger: {
-                trigger: section,
-                start: "top 90%",
-                //                end: "bot 10%",
-                toggleActions: "play none none reset",
-                //                markers: true,
-            },
-        }
-    );
-
-
-//    cards.forEach(card => {
-//        gsap.set(card, {
-//            x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
-//            opacity: 1
-//        });
+//const sections = document.querySelectorAll('.section');
 //
-//        gsap.to(
-//            card, {
-//                opacity: 1,
-//                x: 0,
-//                duration: 1,
-//                scrollTrigger: {
-//                    trigger: card,
-//                    start: "0 100%",
-//                    toggleActions: "play none none reset",
-//                    //                  markers: true,
-//                },
-//            }
-//        );
-//    });
+//sections.forEach((section, index) => {
 //
-//    gsap.set(aboutMe1, {
-//        x: window.innerWidth < 768 ? 0 : -50, // 螢幕寬度小於 768px 時設為 0，否則設為 -50
+//    const container = section.querySelector('.container');
+//    const cards = section.querySelectorAll('.card');
+//    const aboutMe1 = section.querySelectorAll('.aboutMe1');
+//    const aboutMe2 = section.querySelectorAll('.aboutMe2');
+//
+//    gsap.set(container, {
+//        y: 150,
 //        opacity: 1
 //    });
 //
 //    gsap.to(
-//        aboutMe1, {
-//            x: 0,
+//        container, {
+//            y: 0,
 //            opacity: 1,
 //            duration: 1.5,
+//            ease: 'power2.easeInOut',
 //            scrollTrigger: {
 //                trigger: section,
 //                start: "top 90%",
-//                toggleActions: "play none none none",
+//                //                end: "bot 10%",
+//                toggleActions: "play none none reset",
+//                //                markers: true,
 //            },
 //        }
 //    );
 //
-//    gsap.set(aboutMe2, {
-//        x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
-//        opacity: 0
-//    });
 //
-//    gsap.to(
-//        aboutMe2, {
-//            x: 0,
-//            opacity: 1,
-//            duration: 1.5,
-//            scrollTrigger: {
-//                trigger: section,
-//                start: "top 90%",
-//                toggleActions: "play none none none",
-//            },
-//        }
-//    );
-
-});
+//    //    cards.forEach(card => {
+//    //        gsap.set(card, {
+//    //            x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
+//    //            opacity: 1
+//    //        });
+//    //
+//    //        gsap.to(
+//    //            card, {
+//    //                opacity: 1,
+//    //                x: 0,
+//    //                duration: 1,
+//    //                scrollTrigger: {
+//    //                    trigger: card,
+//    //                    start: "0 100%",
+//    //                    toggleActions: "play none none reset",
+//    //                    //                  markers: true,
+//    //                },
+//    //            }
+//    //        );
+//    //    });
+//    //
+//    //    gsap.set(aboutMe1, {
+//    //        x: window.innerWidth < 768 ? 0 : -50, // 螢幕寬度小於 768px 時設為 0，否則設為 -50
+//    //        opacity: 1
+//    //    });
+//    //
+//    //    gsap.to(
+//    //        aboutMe1, {
+//    //            x: 0,
+//    //            opacity: 1,
+//    //            duration: 1.5,
+//    //            scrollTrigger: {
+//    //                trigger: section,
+//    //                start: "top 90%",
+//    //                toggleActions: "play none none none",
+//    //            },
+//    //        }
+//    //    );
+//    //
+//    //    gsap.set(aboutMe2, {
+//    //        x: window.innerWidth < 768 ? 0 : 50, // 螢幕寬度小於 768px 時設為 0，否則設為 50
+//    //        opacity: 0
+//    //    });
+//    //
+//    //    gsap.to(
+//    //        aboutMe2, {
+//    //            x: 0,
+//    //            opacity: 1,
+//    //            duration: 1.5,
+//    //            scrollTrigger: {
+//    //                trigger: section,
+//    //                start: "top 90%",
+//    //                toggleActions: "play none none none",
+//    //            },
+//    //        }
+//    //    );
+//
+//});
 
 
 
@@ -358,4 +394,53 @@ document.getElementById('googleForm').addEventListener('submit', function (e) {
         .catch(() => {
             // 提交失败时处理
         });
+});
+
+
+
+
+
+
+//土法煉鋼的捲動SNAP，只有往下滑動時觸發，往上滑不會，section在視窗頂部下方視窗高度20%以內時觸發
+let timeoutId = null;
+
+window.addEventListener('scroll', function () {
+    clearTimeout(timeoutId); // 清除之前的計時器
+
+    timeoutId = setTimeout(function () {
+        const windowHeight = window.innerHeight; // 取得視窗高度
+        //        const sections = document.querySelectorAll('.section'); // 選取所有的section元素
+
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top; // 取得section頂緣相對於視窗的位置
+
+            if (sectionTop > 0 && sectionTop <= windowHeight * 0.20) {
+                //                console.log("Scroll!");
+                const startScrollY = window.scrollY;
+                const scrollToPosition = startScrollY + sectionTop;
+                const duration = 300; // 捲動的總時間（毫秒）
+                let startTime;
+
+                function scrollToEaseOut(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const elapsedTime = timestamp - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1);
+                    const easeProgress = 1 - Math.pow(1 - progress, 3); // 使用 ease-out 函數
+                    const scrollDistance = scrollToPosition - startScrollY;
+                    const scrollAmount = scrollDistance * easeProgress;
+
+                    window.scrollTo({
+                        top: startScrollY + scrollAmount,
+                        behavior: 'auto'
+                    });
+
+                    if (elapsedTime < duration) {
+                        requestAnimationFrame(scrollToEaseOut);
+                    }
+                }
+
+                requestAnimationFrame(scrollToEaseOut);
+            }
+        });
+    }, 500); // 0.5秒延遲後執行
 });

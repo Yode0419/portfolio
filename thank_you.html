@@ -33,37 +33,67 @@
     .s3 {
         background-color: coral;
     }
+
+    .s4 {
+        background-color: #7b361d;
+    }
+
+    .s5 {
+        background-color: #31834a;
+    }
 </style>
 
 <body>
     <div class="section s1">section 1</div>
     <div class="section s2">section 2</div>
     <div class="section s3">section 3</div>
+    <div class="section s4">section 4</div>
+    <div class="section s5">section 5</div>
 
 
 
 
     <script>
-        const s2 = document.querySelector(".s2");
-let timeoutId = null;
+        let timeoutId = null;
 
-window.addEventListener('scroll', function() {
-    clearTimeout(timeoutId); // 清除之前的計時器
-    
-    timeoutId = setTimeout(function() {
-        const windowHeight = window.innerHeight; // 取得視窗高度
-        const sections = document.querySelectorAll('.section'); // 選取所有的section元素
-        
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top; // 取得section頂緣相對於視窗的位置
-            
-            if (Math.abs(sectionTop) <= windowHeight * 0.3) {
-                const scrollToPosition = window.scrollY + sectionTop;
-                window.scrollTo({ top: scrollToPosition, behavior: 'smooth', block: 'start', inline: 'nearest' });
-            }
+        window.addEventListener('scroll', function() {
+            clearTimeout(timeoutId); // 清除之前的計時器
+
+            timeoutId = setTimeout(function() {
+                const windowHeight = window.innerHeight; // 取得視窗高度
+                const sections = document.querySelectorAll('.section'); // 選取所有的section元素
+
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top; // 取得section頂緣相對於視窗的位置
+
+                    if (Math.abs(sectionTop) <= windowHeight * 0.5) {
+                        const startScrollY = window.scrollY;
+                        const scrollToPosition = startScrollY + sectionTop;
+                        const duration = 1000; // 捲動的總時間（毫秒）
+                        let startTime;
+
+                        function scrollToEaseOut(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            const elapsedTime = timestamp - startTime;
+                            const progress = Math.min(elapsedTime / duration, 1);
+                            const easeProgress = 1 - Math.pow(1 - progress, 3); // 使用 ease-out 函數
+                            const scrollDistance = scrollToPosition - startScrollY;
+                            const scrollAmount = scrollDistance * easeProgress;
+
+                            window.scrollTo({
+                                top: startScrollY + scrollAmount,
+                                behavior: 'auto'
+                            });
+
+                            if (elapsedTime < duration) {
+                                requestAnimationFrame(scrollToEaseOut);
+                            }
+                        }
+
+                        requestAnimationFrame(scrollToEaseOut);
+                    }
+                });
+            }, 500); // 0.5秒延遲後執行
         });
-    }, 500); // 0.5秒延遲後執行
-});
-
     </script>
 </body></html>
