@@ -15,7 +15,42 @@ body {
     color: white;
 }
 
+.doodle1 {
+    position: fixed;
+    opacity: 0.5;
+    /*
+            width: 100%;
+            height: 100vh;
+*/
+    --rule: ( :doodle {
+            @grid: 2 / 100vmax;
+            background:  #101112;
+        }
 
+        filter: blur(@rand(2vmax, 4vmax));
+        border-radius: @rand(50%, 100%) @rand(50%, 100%) @rand(50%, 100%) @rand(50%, 100%);
+        background: hsla(@pick-d(204, 217, 260, 338), 70%, @rand(70%, 80%), @rand(0.05, 0.1));
+
+        animation: move 10s linear alternate infinite;
+
+        @keyframes move {
+            0% {
+                transform: translate(@rand(-30%, 30%), @rand(-30%, 30%)) scale(@rand(0.8, 2));
+            }
+
+            100% {
+                transform: translate(@rand(-50%, 50%), @rand(-50%, 50%));
+            }
+        }
+
+    )
+}
+
+
+
+
+
+/*
 .movingBackground {
     width: 100%;
     height: 100vh;
@@ -23,6 +58,7 @@ body {
     position: fixed;
     z-index: -1;
 }
+*/
 
 
 /*NAVBAR(Responsive)--START--*/
@@ -841,8 +877,8 @@ textarea {
     width: 100%;
     height: 10vw;
     position: relative;
-    background-color: #1F2123;
-    border-top: 1px solid rgba(170, 170, 170, 0.15);
+    background-color: #1F2123CC;
+/*    border-top: 1px solid rgba(170, 170, 170, 0.05);*/
     /*    scroll-snap-align: end;*/
 }
 
