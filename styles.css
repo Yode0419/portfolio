@@ -5,8 +5,14 @@
     font-family: "Montserrat", sans-serif;
 }
 
-html {
 /*
+:root {
+  filter: invert(100%);
+}
+*/
+
+html {
+    /*
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
 */
@@ -21,8 +27,8 @@ body {
 /*四個模糊泡泡飄動背景*/
 .doodle1 {
     position: fixed;
-    opacity: 0.3;
-    
+    opacity: 0.6;
+
     --rule: ( :doodle {
             @grid: 2 / 100vmax;
             background: #101112;
@@ -30,19 +36,20 @@ body {
 
         filter: blur(@rand(2vmax, 4vmax));
         border-radius: @rand(50%, 100%) @rand(50%, 100%) @rand(50%, 100%) @rand(50%, 100%);
-        background: hsla(@pick-d(190, 220, 260, 338), 70%, @rand(5%, 50%), @rand(0.15, 0.3));
+        background: hsla(@pick-d(197, 230, 260, 333), @rand(20%, 100%), @rand(0%, 45%), @rand(0.3, 0.5));
 
-        animation: move 10s linear alternate infinite;
+        animation: move 7s linear alternate infinite;
 
         @keyframes move {
             0% {
-                transform: translate(@rand(-30%, 30%), @rand(-30%, 30%)) scale(@rand(0.8, 2));
+                transform: translate(@rand(-30%, 30%), @rand(-30%, 30%)) scale(@rand(0.5, 1.5));
             }
 
             100% {
                 transform: translate(@rand(-50%, 50%), @rand(-50%, 50%));
             }
         }
+
     )
 }
 
@@ -67,8 +74,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #252627E6;
-    backdrop-filter: blur(1.5px);
+    background-color: rgba(37, 38, 39, 0.6);
+    backdrop-filter: blur(3px);
     z-index: -1;
 }
 
@@ -142,8 +149,8 @@ body {
     right: 7.5%;
     min-width: calc(5% + 3rem);
     height: 0;
-    background-color: #252627E6;
-    backdrop-filter: blur(1.5px);
+    background-color: rgba(37, 38, 39, 0.6);
+    backdrop-filter: blur(3px);
     overflow: hidden;
     transition: 0.3s ease;
 }
@@ -203,10 +210,11 @@ body {
         left: 0;
         width: 100%;
         height: 0;
-        background-color: #252627E6;
-        backdrop-filter: blur(1.5px);
+        background-color: rgba(37, 38, 39, 0.6);
+        backdrop-filter: blur(3px);
         overflow: hidden;
         transition: 0.3s ease;
+        border-radius: 0 0 16px 16px;
     }
 
     #itemCheck:checked ~ .navbarItem {
@@ -235,10 +243,11 @@ body {
         left: 0;
         width: 100%;
         height: 0;
-        background-color: #252627E6;
-        backdrop-filter: blur(1.5px);
+        background-color: rgba(37, 38, 39, 0.6);
+        backdrop-filter: blur(3px);
         overflow: hidden;
         transition: 0.3s ease;
+        border-radius: 0 0 16px 16px;
     }
 
     #langCheck:checked ~ .langOptions {
@@ -314,7 +323,7 @@ body {
 
 .arrowDown {
     cursor: pointer;
-    height: 0.75rem;
+    width: 2rem;
     position: fixed;
     bottom: 5%;
     left: 50%;
@@ -337,11 +346,12 @@ body {
     }
 
     .arrowDown {
-        height: 0.5rem;
+        width: 1.5rem;
     }
 }
 
 /*歡迎頁文字淡入動畫*/
+.welcomePage .bgCanvas,
 .welcomePage .P1,
 .welcomePage .P2,
 .welcomePage .arrowDown {
@@ -411,20 +421,45 @@ body {
 
 /*PORTFOLIO--START--*/
 .card {
+    position: relative;
     height: auto;
     margin: 0.5rem 0rem 3rem 0rem;
     padding: 0.75rem 1.5rem;
     border-radius: 16px;
-    /*
-    background-color: #3A414F;
-    background-color: #3A414F;
-*/
+    border: 1px solid rgba(128, 128, 128, 0.3);
+
     background-image: linear-gradient(120deg, #3A414F33 0%, #3A414F99 50%, #2d316033 100%);
     transition: 0.3s ease;
 }
 
 .card:hover {
     box-shadow: 0 0 0.75rem #93a1b7BB;
+    background-color: rgba(58, 65, 79, 0.3);
+}
+
+.cardLightArea {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.cardLight {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    /*    background-color:brown;*/
+    background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.00) 35%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.00) 65%);
+    transition: 0.6s ease;
+}
+
+.card:hover .cardLight {
+    left: -100%;
 }
 
 .card .cardRow1 {
@@ -569,8 +604,7 @@ body {
 
 
 /*ABOUT ME--START--*/
-.section2 {
-}
+.section2 {}
 
 .section2 .row2 {
     /*    background-color: #2e2c33;*/
@@ -637,6 +671,7 @@ body {
     /*        background-color: #225253;*/
     background-image: linear-gradient(120deg, #3A414F33 0%, #3A414F99 50%, #2d316033 100%);
     border-radius: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.3);
     padding: 1rem;
     margin-bottom: 1rem;
     flex-grow: 0.1;
@@ -892,7 +927,7 @@ svg > rect {
 
 .footer .footerInfo .footerLogo {
     margin-right: 15%;
-/*        background-color: #5e1567;*/
+    /*        background-color: #5e1567;*/
 }
 
 .footer .footerInfo .footerLogo .logo {
