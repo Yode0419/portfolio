@@ -357,6 +357,7 @@ body {
 .welcomePage .arrowDown {
     opacity: 0;
     animation: fadeIn 1.5s ease-in-out forwards;
+    animation-iteration-count: 1;
 }
 
 @keyframes fadeIn {
