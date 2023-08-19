@@ -135,7 +135,7 @@ bgCanvas.height = window.innerHeight;
 const bgContext = bgCanvas.getContext("2d");
 const frameCount = 125;
 
-const currentFrame = (index) => `./img/bgImage/${(index + 1).toString()}.jpg`;
+const currentFrame = (index) => `./images/bgImage/${(index + 1).toString()}.jpg`;
 
 const bgImages = [];
 let bg = {

@@ -1,75 +1,29 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<style>
-			.logo-site {
-				overflow: hidden;
-				transition-duration: .5s;
-				width: 200px;
-				height: 60px;
-				background: #eeeeee;
-				text-align: center;
-				vertical-align: middle;
-			}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lightbox.min.css">
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+    </style>
+</head>
 
-			.logo-site:before {
-				content: "";
-				position: absolute;
-				left: -665px;
-				top: -460px;
-				width: 250px;
-				height: 15px;
-				background-color: rgba(255, 255, 255, .5);
-				-webkit-transform: rotate(-45deg);
-				-moz-transform: rotate(-45deg);
-				-ms-transform: rotate(-45deg);
-				transform: rotate(-45deg);
-				-webkit-animation: searchLights 1s ease-in 1s infinite;
-				animation: searchLights 1s ease-in 1s infinite
-			}
+<body>
+    <a href="./images/card_Firstaid.png" data-lightbox="roadtrip" data-title="First aid">
+        <img src="./images/card_Firstaid.png" alt="">
+    </a>
+    <a href="./images/card_rogAlly.png" data-lightbox="roadtrip"><img src="./images/card_rogAlly.png" alt=""></a>
+  <a href="./images/card_SkaterBoi.png" data-lightbox="roadtrip"><img src="./images/card_SkaterBoi.png" alt=""></a>
+  <a href="./images/yode_bg_1080p.png" data-lightbox="dd" data-title="Background"><img src="./images/yode_bg_1080p.png" alt=""></a>
 
-			@-webkit-keyframes searchLights {
-				0% {
-					left: -100px;
-					top: 0
-				}
-
-				to {
-					left: 120px;
-					top: 100px
-				}
-			}
-
-			@-moz-keyframes searchLights {
-				0% {
-					left: -100px;
-					top: 0
-				}
-
-				to {
-					left: 120px;
-					top: 100px
-				}
-			}
-
-			@keyframes searchLights {
-				0% {
-					left: -100px;
-					top: 0
-				}
-
-				to {
-					left: 120px;
-					top: 100px
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<div class="logo-site">
-			<p>LOGO</p>
-		</div>
-	</body>
-</html>
+    <script src="./lightbox-plus-jquery.min.js"></script>
+    <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })
+</script>
+</body></html>

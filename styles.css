@@ -615,7 +615,7 @@ body {
     width: 200px;
     height: 200px;
     background-color: #592c71;
-    background-image: url(./img/profilePhoto.jpg);
+    background-image: url(./images/profilePhoto.jpg);
     background-size: contain;
     border-radius: 50%;
     margin-left: auto;
