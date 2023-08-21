@@ -1,0 +1,8 @@
+{
+  "zh": {
+    "text": "這是一段<span class=\"boldText\">中文</span>內容。"
+  },
+  "en": {
+    "text": "This is a paragraph of <span class=\"boldText\">English</span> content."
+  }
+}

@@ -908,19 +908,6 @@ svg > rect {
     fill: rgb(19, 25, 25);
 }
 
-
-.footer .footerHero {
-    color: #2C2D2F;
-    font-family: "Roboto";
-    font-size: 7vw;
-    font-weight: bold;
-    position: absolute;
-    top: -1vw;
-    right: 0;
-    z-index: 1;
-
-}
-
 .footer .footerInfo {
     display: flex;
     align-items: center;

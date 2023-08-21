@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Switcher</title>
+    <style>
+        #content {
+            font-weight: 400;
+        }
+
+        .boldText {
+            font-weight: 900;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="zhBtn">中文</button>
+    <button id="enBtn">English</button>
+    <p id="content">這是一段<span class="boldText">中文</span>內容。</p>
+
+    <script>
+        const contentElement = document.getElementById('content');
+        const zhButton = document.getElementById('zhBtn');
+        const enButton = document.getElementById('enBtn');
+
+        // 异步加载 JSON 数据
+        fetch("./content.json")
+            .then(response => response.json())
+            .then(langData => {
+                const updateContent = language => {
+                    contentElement.innerHTML = langData[language].text;
+                };
+
+                zhButton.addEventListener('click', () => {
+                    updateContent('zh');
+                });
+
+                enButton.addEventListener('click', () => {
+                    updateContent('en');
+                });
+
+                // 初始内容为英文
+                updateContent('zh');
+            })
+            .catch(error => {
+                console.error('Error fetching JSON data:', error);
+            });
+    </script>
+</body>
+</html>
