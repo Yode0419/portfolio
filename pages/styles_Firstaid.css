@@ -659,6 +659,60 @@ li {
     padding: 0rem 2rem;
 }
 
+.section3 .section3Row6 .visualDesignLogoText,
+.section3 .section3Row6 p {
+    color: #808080;
+    margin-bottom: 0.5rem;
+}
+
+.section3 .section3Row6 .redText {
+    color: #E40000;
+}
+
+.section3 .section3Row6 .greenText {
+    color: #008250;
+}
+
+.section3 .section3Row6 .leftPart {
+    text-align: end;
+}
+
+@media (max-width:768px) {
+
+    .section3 .section3Row6 p,
+    .section3 .section3Row6 .leftPart {
+        text-align: center;
+    }
+
+    .section3 .section3Row6 .rightPart {
+        margin-bottom: 2rem;
+    }
+}
+
+.section3 .section3Row6 .visualDesignGif {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    object-fit: contain;
+
+}
+
+.section3 .section3Row6 .visualDesignGif .gif1 {
+    margin: 0.2rem;
+    width: 280px;
+    max-width: 100%;
+}
+
+.section3 .section3Row6 .visualDesignGif .gif2 {
+    margin: 1rem;
+    width: 480;
+    max-width: 100%;
+}
+
+
+
+
+
 
 
 
