@@ -155,7 +155,7 @@ gsap.to(bg, {
     scrollTrigger: {
         scrub: 0.5,
         pin: "canvas",
-        end: "600%",
+        end: "500%",
     },
     onUpdate: render,
 });
