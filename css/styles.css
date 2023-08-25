@@ -712,6 +712,50 @@ body {
     align-items: flex-end;
 }
 
+.section2 .exCard .googleExArea {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section2 .certificateLink {
+    position: relative;
+    background-color: rgba(101, 101, 101, 0.5);
+    border-radius: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.section2 .certificateLink::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    width: 200%;
+    height: 100%;
+    background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.00) 35%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.00) 65%);
+    z-index: 1;
+    transition: 0.2s ease;
+}
+
+.section2 .certificateLink:hover {
+    background-color: rgba(5, 206, 214, 0.5);
+}
+
+.section2 .certificateLink:hover::after {
+    left: -100%;
+}
+
+.section2 .certificate {
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+
+
+
+
 .section2 .resume {
     width: 200px;
     color: white;
