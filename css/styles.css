@@ -718,6 +718,7 @@ body {
 }
 
 .section2 .certificateLink {
+    text-decoration: none;
     position: relative;
     background-color: rgba(101, 101, 101, 0.5);
     border-radius: 2rem;
