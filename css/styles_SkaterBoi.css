@@ -11,7 +11,7 @@ html {
 }
 
 body {
-/*
+    /*
 
     position: fixed;
     width: 100vw;
@@ -36,7 +36,23 @@ h1 {
     letter-spacing: 0.02rem;
     line-height: 150%;
     margin-bottom: 1rem;
+    display: inline-block;
+    position: relative;
 }
+
+.section1 h1::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 80%;
+    width: calc(100% + 2.25rem);
+    left: -1rem;
+    bottom: -0.25rem;
+    border-radius: 3rem 3rem 10rem 5rem;
+    border-right: 0.25rem solid #FFD700;
+    border-bottom: 0.25rem solid #FFD700;
+}
+
 
 h2 {
     color: #1F2123;
@@ -415,56 +431,35 @@ li a img {
 
 /*每個SECTION最左邊的bar*/
 .section1 .container-md {
-    border-left: 10px solid #008250;
+/*    border-left: 10px solid #008250;*/
     padding-top: 0;
     padding-bottom: 3rem;
 }
 
 .section2 .container-md {
-    border-left: 10px solid #E0E6E4;
+/*    border-left: 10px solid #E0E6E4;*/
     padding-top: 0;
     padding-bottom: 3rem;
 }
 
 .section3 .container-md {
-    border-left: 10px solid #FFE1E1;
+/*    border-left: 10px solid #FFE1E1;*/
     padding-top: 0;
     padding-bottom: 3rem;
 }
 
 .section4 .container-md {
-    border-left: 10px solid #F88484;
+/*    border-left: 10px solid #F88484;*/
     padding-top: 0;
     padding-bottom: 3rem;
 }
 
 .section5 .container-md {
-    border-left: 10px solid #D9D9D9;
+/*    border-left: 10px solid #D9D9D9;*/
     padding-top: 0;
     padding-bottom: 3rem;
 }
 
-@media (max-width: 576px) {
-    .section1 .container-md {
-        border-left: 5px solid #008250;
-    }
-
-    .section2 .container-md {
-        border-left: 5px solid #E0E6E4;
-    }
-
-    .section3 .container-md {
-        border-left: 5px solid #FFE1E1;
-    }
-
-    .section4 .container-md {
-        border-left: 5px solid #F88484;
-    }
-
-    .section5 .container-md {
-        border-left: 5px solid #D9D9D9;
-    }
-}
 
 
 
