@@ -594,7 +594,7 @@ li a img {
 }
 
 .section3 .section3Row3 .wireframeArea .wireframeCard img {
-    /*    max-height: 240px;*/
+    max-height: 240px;
     object-fit: contain;
     margin-bottom: 1rem;
 }
@@ -801,7 +801,7 @@ li a img {
 
 .section5 .section5Row2 h1,
 .section5 .section5Row2 h2 {
-/*    color: #1F2123;*/
+    /*    color: #1F2123;*/
     text-align: center;
 }
 
@@ -841,7 +841,7 @@ li a img {
 }
 
 .otherProjectCardImage {
-/*    background-color: blue;*/
+    /*    background-color: blue;*/
     width: 30%;
     height: 100%;
     margin-right: 1rem;
