@@ -1,13 +1,616 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Page2</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1.0" />
+    <title>Project First aid</title>
+
+    <meta name="description" content="UX設計作品，快速客製個人風格滑板。">
+    <meta name="keywords" content="yode, portfolio, 作品集, 滑板, 客製化">
+    <meta property="og:image" content="">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+
+    <!--引入bootstrap格線系統-->
+    <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
+    <!--引入boxicons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--引入lightbox2-->
+    <link rel="stylesheet" href="../css/lightbox.min.css">
+    <!--自定義CSS-->
+    <link rel="stylesheet" href="../css/styles_SkaterBoi.css">
 </head>
+
 <body>
-    <h1>這是分頁page2</h1>
-    <button onclick="location.href='../index.html'">回首頁</button>
-    <br><br>
-    <img src="../images/page2.png" alt="">
+
+    <!--NAVBAR-->
+    <nav class="navbar">
+        <div class="navbarLink">
+            <input type="checkbox" id="langCheck">
+            <div class="langOptions">
+                <a id="langZh" href="#top">繁體中文</a>
+                <!--                <a id="langEn" href="#top">English</a>-->
+            </div>
+            <a href="../index.html">
+                <div class="navbarHome">
+                    <div class="navbarHomeLogo"></div>
+                    <div id="navbarHomeText" class="navbarHomeText">
+                        回首頁
+                    </div>
+                </div>
+            </a>
+            <label for="langCheck" class="langIcon">
+                <div class="langIconLogo"></div>
+                <img src="../images/language_icon_9d9d9d.svg" alt="">
+            </label>
+        </div>
+    </nav>
+
+
+    <!--goTopButton-->
+    <a href="#top" id="goTopBtn" class="goTopBtn"><img src="../images/goTop_icon_9d9d9d.svg" alt=""></a>
+
+
+
+    <!--HERO-->
+    <div class="section hero">
+        <!--背景-->
+<!--
+        <svg class="heroBackground" xmlns="http://www.w3.org/2000/svg" width="1440" height="585" viewBox="0 0 1440 585" preserveAspectRatio="none meet">
+            <path d="M1046.14 419C1238.07 419 1409.51 346 1440 326.5V306C1347.03 356 1189.29 408.5 1046.14 408.5C872.197 408.5 285.901 269 0 269V290.5C287.4 290.5 808.219 419 1046.14 419Z" fill="#FFE86F" />
+            <path d="M1440 173C1373.69 232.333 1202.08 351 1046.14 351C920.503 351 747.732 270.849 567.31 187.149C370.17 95.6933 163.895 0 0 0L0 269C285.901 269 872.197 408.5 1046.14 408.5C1189.29 408.5 1347.03 356 1440 306V173Z" fill="#FFEF9E" />
+        </svg>
+-->
+        <!--產品圖、Logo、標題-->
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="hero_1">
+                        <img src="../images/SkaterBoi/SkaterBoi_hero.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="hero_2">
+                        <img src="../images/SkaterBoi/SkaterBoi_logo.png" alt="">
+                        <h1>快速客製個人風格滑板</h1>
+                        <h2>Web Design</h2>
+                        <p>Jul, 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--SECTION 1-->
+    <div class="section section1">
+        <div class="container-md ps-md-5 ps-4 pe-4">
+            <div class="row">
+                <div class="col-lg-10">
+                    <h1>專案概述</h1>
+                    <p><img src="../images/Firstaid/Firstaid_logo.png" alt=""> 是一個提供使用者便捷<span class="pBold">查詢如何急救處理</span>，以及<span class="pBold">學習急救知識</span>的網站平台，網站內含<span class="pBold">AED(自動體外心臟去顫器)地圖</span>，用於尋找範圍內鄰近的AED位置，以及註冊AED登錄至地圖上。</p>
+                    <p>移動裝置App提供了<span class="pBold">CPR(心肺復甦術)指引</span>，急救者可在緊急情況下依照指引操作，把握醫護人員抵達前的黃金時間，提高急救存活率。</p>
+
+                    <div class="divider"></div>
+
+                    <h1>我的角色與職責</h1>
+                    <p>UX/UI 設計師</p>
+                    <ul>
+                        <li>使用者體驗研究</li>
+                        <li>使用者介面設計</li>
+                        <li>可用性研究</li>
+                        <li>產品原型</li>
+                        <li>網站資訊架構</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--SECTION 2-->
+    <div class="section section2">
+        <div class="container-md ps-md-5 ps-4 pe-4">
+            <div class="row">
+                <div class="col-lg-10">
+                    <h1>專案背景</h1>
+                    <p>參與專業單位開設的急救訓練課程，是學習正確急救知識最直接的方式，但一般民眾大多僅在需要時上網搜尋急救處理的方法，且接收的資訊破碎，缺乏系統化整理。</p>
+                </div>
+            </div>
+            <div class="row align-items-end section2Row1">
+                <div class="col-lg-5">
+                    <div class="section2Img"><img src="../images/Firstaid/section2_img_1.jpg" alt=""></div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="section2ImgText">
+                        <p>Google搜尋快速取得大量結果，但不知道要看哪個，且正確性存疑。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-end section2Row2">
+                <div class="col-lg-5 order-lg-2">
+                    <div class="section2Img"><img src="../images/Firstaid/section2_img_2.jpg" alt=""></div>
+                </div>
+                <div class="col-lg-5 order-lg-1">
+                    <div class="section2ImgText">
+                        <p>漫長的路徑，才能找到衛生、救護機構提供的急救處理資訊。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-end section2Row3">
+                <div class="col-lg-3">
+                    <div class="section2Img"><img src="../images/Firstaid/section2_img_3.jpg" alt=""></div>
+                </div>
+                <div class="col-lg-7">
+                    <p>而擁有急救知識，卻不等於實際遭遇受傷意外的情況時，總是能保持冷靜處理。<br>以學校、社區、或公司教育訓練中普遍學習的CPR為例，當我們身邊真的有人不幸倒下，我們是否仍會有所顧慮、怕操作不正確，而耽誤了救援的機會。</p>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row section2Row4">
+                <div class="col-lg-5">
+                    <h1>定義問題</h1>
+                    <ul>
+                        <li>急救相關資料雖然豐富，但卻破碎分散不集中。</li>
+                        <li>因慌張、顧慮而影響施救意願，措施急救黃金時間。</li>
+                    </ul>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="col-lg-5">
+                    <h1>設計目標</h1>
+                    <ul>
+                        <li>建立良好組織的急救知識學習平台，提供使用者簡便查尋如何進行緊急處理。</li>
+                        <li>為使用者建立信心，緊急時刻能主動成為施救者。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--SECTION 3-->
+    <div class="section section3">
+        <div class="container-md ps-md-5 ps-4 pe-4">
+            <div class="row section3Row1">
+                <div class="col-lg-10">
+                    <h1>設計過程</h1>
+                    <p>藉由<span class="pBold">痛點分析</span>，提出方案及確立產品的主要功能。原型設計採用<span class="pBold">漸進增強</span>的方式，以日常生活中接觸時間最長的手機依序發展至平板、電腦網頁等跨平台版本。最後透過<span class="pBold">可用性研究</span>，進行<span class="pBold">設計迭代</span>優化。</p>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row align-items-center section3Row2">
+                <h2>痛點分析</h2>
+                <div class="col-lg-4">
+                    <div class="leftPart">
+                        <div class="painPointNum">1</div>
+                        <div class="painPointContent">
+                            <h2>搜尋急救知識</h2>
+                            <p>搜尋到眾多的急救資料，難以篩選出合適且正確的資料。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="rightPart">
+                        <div class="painPointArrow"><img src="../images/Firstaid/greenTri.svg" alt=""></div>
+                        <p>採用<span class="pBold">搜尋引擎</span>及<span class="pBold">分類資料庫</span>的模式建立學習平台。使用者可查詢傷勢或病症，即獲得清晰的急救處理步驟。<span class="pBold">內容由專業救護機構把關正確性</span>，並時時更新。</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="leftPart">
+                        <div class="painPointNum">2</div>
+                        <div class="painPointContent">
+                            <h2>建立施救信心</h2>
+                            <p>緊急狀況時會擔心能力不足、失誤、責任問題等，而卻步施救。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="rightPart">
+                        <div class="painPointArrow"><img src="../images/Firstaid/greenTri.svg" alt=""></div>
+                        <p>App提供<span class="pBold">CPR指引功能</span>，急救過程提供施救者清楚的步驟指引，包含<span class="pBold">CPR節拍器</span>，降低施救者心理壓力。</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="leftPart">
+                        <div class="painPointNum">3</div>
+                        <div class="painPointContent">
+                            <h2>日常急救訓練</h2>
+                            <p>速成學習的急救技能，實際應用發揮效果有限。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="rightPart">
+                        <div class="painPointArrow"><img src="../images/Firstaid/greenTri.svg" alt=""></div>
+                        <p>急救知識的學習需平時逐漸培養，才能臨危不亂。<span class="pBold">介面設計簡明的步驟及影音內容</span>，讓使用者易於瀏覽與複習。可搭配小測驗加深印象。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row section3Row3">
+                <h2>線框圖</h2>
+                <p>確立移動裝置App的四大核心功能：</p>
+                <div class="col-lg-5 g-0">
+                    <div class="wireframeArea">
+                        <div class="wireframeCard">
+                            <h2>查詢</h2>
+                            <a href="../images/Firstaid/wirefram_1.jpg" data-lightbox="wireframe" data-title="線框圖"><img src="../images/Firstaid/wirefram_1.jpg" alt=""></a>
+                            <p>直接輸入開始查詢</p>
+                        </div>
+                        <div class="wireframeCard">
+                            <h2>訓練</h2>
+                            <a href="../images/Firstaid/wirefram_2.jpg" data-lightbox="wireframe" data-title="線框圖"><img src="../images/Firstaid/wirefram_2.jpg" alt=""></a>
+                            <p>急救知識資料庫</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-5 g-0">
+                    <div class="wireframeArea">
+                        <div class="wireframeCard">
+                            <h2>CPR指引</h2>
+                            <a href="../images/Firstaid/wirefram_3.jpg" data-lightbox="wireframe" data-title="線框圖"><img src="../images/Firstaid/wirefram_3.jpg" alt=""></a>
+                            <p>協助施救者進行CPR</p>
+                        </div>
+                        <div class="wireframeCard">
+                            <h2>AED地圖</h2>
+                            <a href="../images/Firstaid/wirefram_4.jpg" data-lightbox="wireframe" data-title="線框圖"><img src="../images/Firstaid/wirefram_4.jpg" alt=""></a>
+                            <p>查詢鄰近AED位置</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row section3Row4">
+                <h2>可用性研究</h2>
+                <p>蒐集使用者反饋，使用親和圖將反饋轉化為設計調整方向。</p>
+                <div class="col-lg-10">
+                    <a href="../images/Firstaid/affinityDiagram.jpg" data-lightbox="affinityDiagram" data-title="可用性研究-親和圖"><img src="../images/Firstaid/affinityDiagram.jpg" alt=""></a>
+                </div>
+                <div class="col-lg-10">
+                    <div class="row justify-content-center">
+                        <div class="col-md-7 col-lg-4">
+                            <div class="findingCard">
+                                <h2>發現 1：查詢</h2>
+                                <p>在查詢時，使用者需要一些提示，加快查詢速度。</p>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-lg-4">
+                            <div class="findingCard">
+                                <h2>發現 2：CPR指引</h2>
+                                <p>增強CPR指引的無障礙功能，使其在緊急情況下更加有效。</p>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-lg-4">
+                            <div class="findingCard">
+                                <h2>發現 3：緊急求助</h2>
+                                <p>首先應該採取的行動是打119尋求幫助。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row section3Row5">
+                <h2>設計迭代</h2>
+                <div class="col-lg-6 ">
+                    <a href="../images/Firstaid/iteration_1.jpg" data-lightbox="iteration" data-title="設計迭代"><img src="../images/Firstaid/iteration_1.jpg" alt=""></a>
+                </div>
+                <div class="col-sm-10 col-lg-4 d-flex align-items-center">
+                    <p>使用者可以通過<span class="pBold">語音輸入</span>進行查詢，並通過<span class="pBold">關鍵字提示</span>迅速查找一些嚴重傷害的急救方法。</p>
+                </div>
+                <div class="col-lg-6">
+                    <a href="../images/Firstaid/iteration_2.jpg" data-lightbox="iteration" data-title="設計迭代"><img src="../images/Firstaid/iteration_2.jpg" alt=""></a>
+                </div>
+                <div class="col-sm-10 col-lg-4 d-flex align-items-center">
+                    <p>CPR節拍器以每分鐘110下的速度播放，通過添加<span class="pBold">節拍跳動動畫</span>增強可用性。</p>
+                </div>
+                <div class="col-lg-6">
+                    <a href="../images/Firstaid/iteration_3.jpg" data-lightbox="iteration" data-title="設計迭代"><img src="../images/Firstaid/iteration_3.jpg" alt=""></a>
+                </div>
+                <div class="col-sm-10 col-lg-4 d-flex align-items-center">
+                    <p>增強無障礙功能，如<span class="pBold">自動擴音朗讀</span>、<span class="pBold">自動下一步</span>。<br>將<span class="pBold">撥打911</span>按鈕放置在顯眼的位置，且<span class="pBold">當前位置</span>顯示在按鈕旁邊，因為這是救護車需要的關鍵訊息。</p>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row section3Row6">
+                <h2>視覺設計</h2>
+                <div class="col-lg-10">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 align-items-center">
+                            <div class="visualDesignLogo">
+                                <img src="../images/Firstaid/Firstaid_logo.png" alt="">
+                            </div>
+                            <h2 class="visualDesignLogoText">帶著繃帶的心　象徵我們通過急救挽回生命</h2>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-md col-lg-4 align-items-center">
+                            <p class="leftPart"><img src="../images/Firstaid/visualDesign_blood.jpg" alt=""> <img src="../images/Firstaid/visualDesign_red.svg" alt=""> <span class="redText">#E40000 </span></p>
+                        </div>
+                        <div class="col-md col-lg-6 align-items-center">
+                            <p class="rightPart">紅色經常代表著危險與緊急情況</p>
+                        </div>
+                        <div class="col-md col-lg-4 align-items-center">
+                            <p class="leftPart"><img src="../images/Firstaid/visualDesign_cross.jpg" alt=""> <img src="../images/Firstaid/visualDesign_green.svg" alt=""> <span class="greenText">#008250 </span></p>
+                        </div>
+                        <div class="col-md col-lg-6 align-items-center">
+                            <p class="rightPart">通用急救符號為綠底白十字</p>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="visualDesignGif">
+                        <img class="gif1" src="../images/Firstaid/autoNext_zh.gif" alt="">
+                        <img class="gif2" src="../images/Firstaid/CPRmeteronome.gif" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--SECTION 4-->
+    <div class="section section4">
+        <div class="container-md ps-md-5 ps-4 pe-4">
+            <h1>設計成果</h1>
+            <h2>移動裝置App原型</h2>
+            <div class="row section4Row1">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 g-0"><a href="../images/Firstaid/hifi_zh_1.jpg" data-lightbox="hifi_zh" data-title="移動裝置App原型"><img src="../images/Firstaid/hifi_zh_1.jpg" alt=""></a></div>
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 g-0"><a href="../images/Firstaid/hifi_zh_2.jpg" data-lightbox="hifi_zh" data-title="移動裝置App原型"><img src="../images/Firstaid/hifi_zh_2.jpg" alt=""></a></div>
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 g-0"><a href="../images/Firstaid/hifi_zh_3.jpg" data-lightbox="hifi_zh" data-title="移動裝置App原型"><img src="../images/Firstaid/hifi_zh_3.jpg" alt=""></a></div>
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 g-0"><a href="../images/Firstaid/hifi_zh_4.jpg" data-lightbox="hifi_zh" data-title="移動裝置App原型"><img src="../images/Firstaid/hifi_zh_4.jpg" alt=""></a></div>
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 g-0"><a href="../images/Firstaid/hifi_zh_5.jpg" data-lightbox="hifi_zh" data-title="移動裝置App原型"><img src="../images/Firstaid/hifi_zh_5.jpg" alt=""></a></div>
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 g-0"><a href="../images/Firstaid/hifi_zh_7.jpg" data-lightbox="hifi_zh" data-title="移動裝置App原型"><img src="../images/Firstaid/hifi_zh_7.jpg" alt=""></a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row section4Row2">
+                <div class="col-lg-10">
+                    <p>在Figma上試試看吧！(建議於電腦上觀看以獲得較佳體驗，或點擊<a href="https://www.figma.com/proto/dJmsjjQLe9KiMuQRjOrVfD/FirstAid?page-id=836%3A3343&type=design&node-id=836-3956&viewport=438%2C426%2C0.1&t=sozj0WQkRCCwVot6-1&scaling=scale-down&starting-point-node-id=836%3A3956&mode=design" target="_blank">連結 <img src="../images/Firstaid/external-link.svg" alt=""></a> )</p>
+                    <div class="iframeArea">
+                        <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FdJmsjjQLe9KiMuQRjOrVfD%2FFirstAid%3Fpage-id%3D836%253A3343%26type%3Ddesign%26node-id%3D836-3956%26viewport%3D438%252C426%252C0.1%26t%3DuA9VY4K0Yt9KeA9p-1%26scaling%3Dscale-down%26starting-point-node-id%3D836%253A3956%26mode%3Ddesign" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row section4Row3">
+                <h2>網頁設計</h2>
+                <div class="col-lg-5">
+                    <p>網站架構與移動裝置App的功能相似，但考量到瀏覽網頁與使用App的情境稍有不同，網站將CPR指引以靜態內容放置於急救訓練中，並加入App下載連結。</p>
+                </div>
+                <div class="col-lg-5">
+                    <a href="../images/Firstaid/sitemap_zh.jpg" data-lightbox="sitemap" data-title="網站地圖"><img class="sitemap" src="../images/Firstaid/sitemap_zh.jpg" alt=""></a>
+                </div>
+                <div class="col-lg-5">
+                    <p>響應式網頁設計，確保不同螢幕尺寸都能舒適地瀏覽。(點擊模擬圖體驗瀏覽)</p>
+                </div>
+            </div>
+
+            <div class="row section4Row4">
+                <div class="col-lg-10">
+                    <div class="row align-items-end">
+                        <div class="col-6 col-lg-3">
+                            <a href="https://www.figma.com/proto/dJmsjjQLe9KiMuQRjOrVfD/FirstAid?page-id=840%3A4471&type=design&node-id=840-4531&viewport=582%2C115%2C0.07&t=Vws6NzefXzNjkGjf-1&scaling=scale-down&starting-point-node-id=840%3A4531&show-proto-sidebar=1&mode=design" target="_blank">
+                                <div class="productCard">
+                                    <img class="mobile" src="../images/Firstaid/product_1.png" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <a href="https://www.figma.com/proto/dJmsjjQLe9KiMuQRjOrVfD/FirstAid?page-id=840%3A4471&type=design&node-id=840-4941&viewport=582%2C115%2C0.07&t=Vws6NzefXzNjkGjf-1&scaling=scale-down&starting-point-node-id=840%3A4941&show-proto-sidebar=1&mode=design" target="_blank">
+                                <div class="productCard">
+                                    <img class="tablet" src="../images/Firstaid/product_2.png" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <a href="https://www.figma.com/proto/dJmsjjQLe9KiMuQRjOrVfD/FirstAid?page-id=840%3A4471&type=design&node-id=840-5371&viewport=582%2C115%2C0.07&t=Vws6NzefXzNjkGjf-1&scaling=scale-down&starting-point-node-id=840%3A5371&show-proto-sidebar=1&mode=design" target="_blank">
+                                <div class="productCard">
+                                    <img class="laptop" src="../images/Firstaid/product_3.png" alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row section4Row5">
+                <h1>精進空間</h1>
+                <div class="col-lg-5">
+                    <div class="nextStepCard">
+                        <div class="nextStepArrow"><img src="../images/Firstaid/redTri.svg" alt=""></div>
+                        <p>首頁增加最近幾次的查詢紀錄，幫助使用者快速查詢複習。</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="nextStepCard">
+                        <div class="nextStepArrow"><img src="../images/Firstaid/redTri.svg" alt=""></div>
+                        <p>諮詢專業救護人士，將急救知識資料庫作更系統化整理。</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="nextStepCard">
+                        <div class="nextStepArrow"><img src="../images/Firstaid/redTri.svg" alt=""></div>
+                        <p>結合撥打119視訊功能，讓救護人員可以直接看到現場狀況。</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="nextStepCard">
+                        <div class="nextStepArrow"><img src="../images/Firstaid/redTri.svg" alt=""></div>
+                        <p>漸進式學習檢傷分類、專業救援術語，讓現場狀況可以更有效傳遞給即將前來的專業救護人員。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--SECTION 5-->
+    <div class="section section5">
+        <div class="container-md ps-md-5 ps-4 pe-4">
+            <div class="row section5Row1">
+                <div class="col-lg-10">
+                    <h1>結語</h1>
+                    <p><img src="../images/Firstaid/Firstaid_logo.png" alt=""> 提供使用者方便地查詢急救處理方式、學習急救知識，跨裝置設計讓使用者易於瀏覽與學習。<br>移動裝置App中的CPR指南及AED地圖功能建立施救者的信心，在緊急情況下提高急救成功機會。</p>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="divider"></div>
+
+            <div class="row section5Row2">
+                <div class="col-lg-10">
+                    <h1>謝謝瀏覽 <img src="../images/Firstaid/Firstaid_heart.svg" alt=""></h1>
+                    <a href="mailto:yode0419@gmail.com">
+                        <h2>歡迎提供意見及交流 ✉️</h2>
+                    </a>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="divider"></div>
+
+            <div class="row section5Row3">
+                <div class="col-lg-10">
+                    <h2>參考資料</h2>
+                    <ul>
+                        <li>衛生福利部中央健保署<a href="https://www.nhi.gov.tw" target="_blank"><img src="../images/Firstaid/external-link.svg" alt=""></a></li>
+                        <li>內政部消防署<a href="https://www.nfa.gov.tw/cht/index.php" target="_blank"><img src="../images/Firstaid/external-link.svg" alt=""></a></li>
+                        <li>臺北市政府消防局<a href="https://www.119.gov.taipei" target="_blank"><img src="../images/Firstaid/external-link.svg" alt=""></a></li>
+                        <li>安妮怎麼了？<a href="https://www.anne.education"><img src="../images/Firstaid/external-link.svg" alt=""></a></li>
+                        <li>中華民國紅十字會<a href="https://www.redcross.org.tw" target="_blank"><img src="../images/Firstaid/external-link.svg" alt=""></a></li>
+                        <li>急救先鋒App<a href="https://play.google.com/store/apps/details?id=com.nfagov.appvfb" target="_blank"><img src="../images/Firstaid/external-link.svg" alt=""></a></li>
+                        <li>視訊119App<a href="https://play.google.com/store/apps/details?id=taipei.gov.fdapp&hl=zh_TW&gl=US" target="_blank"><img src="../images/Firstaid/external-link.svg" alt=""></a></li>
+                        <li>American Red Cross<a href="https://www.redcross.org" target="_blank"><img src="../images/Firstaid/external-link.svg" alt=""></a></li>
+                        <li>St John Ambulance<a href="https://www.sja.org.uk" target="_blank"><img src="../images/Firstaid/external-link.svg" alt=""></a></li>
+                        <li>Avonmore Training Solutions<a href="https://www.firstaidtrainingni.com" target="_blank"><img src="../images/Firstaid/external-link.svg" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!--DISCLAIMER免責聲明-->
+    <div class="container-md ps-5 pe-5">
+        <div class="col-lg-10">
+            <p class="note">本作品集網站及Figma原型中使用的部分品牌產品照片與圖片，僅用於展示個人設計練習，並無任何商業用途。
+                產品照片、圖片版權歸原品牌所有，若有疑慮，敬請與我聯繫。</p>
+            <br>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!--Other Projects-->
+    <div class="container">
+        <div class="row otherProject">
+            <div id="otherProjectText" class="col-lg-2 otherProjectText">
+                <h2>檢視我的其他作品</h2>
+            </div>
+            <div class="col-lg-5 p-3">
+                <a href="">
+                    <div class="otherProjectCard">
+                        <div class="otherProjectCardImage">
+                            ...
+                        </div>
+                        <div class="otherProjectCardText">
+                            <p id="cardTitle" class="cardTitle">Skater Boi</p>
+                            <p id="cardDetail" class="cardDetail">快速客製個人風格滑板</p>
+                            <p id="cardNote" class="note">Web Design</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-5 p-3">
+                <a href="">
+                    <div class="otherProjectCard">
+                        <div class="otherProjectCardImage">
+                            ...
+                        </div>
+                        <div class="otherProjectCardText">
+                            <p id="cardTitle" class="cardTitle">ROG Ally</p>
+                            <p id="cardDetail" class="cardDetail">下一代ROG Ally會是什麼樣子呢?</p>
+                            <p id="cardNote" class="note">Product Design</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!--FOOTER-->
+    <footer class="footer">
+        <div class="footerInfo">
+            <div class="footerLogo">
+                <div id="logo" class="logo"></div>
+            </div>
+            <div class="footerText">
+                <p>©Yode Wang<br>Last Update: 23 Aug, 2023</p>
+            </div>
+        </div>
+
+        <svg>
+            <defs>
+                <mask id="mask" x="0" y="0" width="100%" height="100%">
+                    <rect x="0" y="0" width="100%" height="100%" />
+                    <text text-anchor="end" x="100%" y="5.8vw">ありがとうございました</text>
+                </mask>
+            </defs>
+            <rect x="0" y="0" width="100%" height="100%" />
+        </svg>
+    </footer>
+
+
+
+
+
+    <!--Lottie-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <!--lightbox2-->
+    <script src="../js/lightbox-plus-jquery.min.js"></script>
+
+    <!--customJS-->
+    <script src="../js/pageJS.js"></script>
+
 </body>
+
 </html>
