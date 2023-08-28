@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Switcher</title>
-    <style>
-        #content {
-            font-weight: 400;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Follow Image</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
 
-        .boldText {
-            font-weight: 900;
-            color: green;
-        }
-    </style>
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    
+    #imageElement {
+      position: fixed;
+      width: 200px; /* 調整圖片大小 */
+      height: auto;
+    }
+  </style>
 </head>
-
 <body>
-    <button id="zhBtn">中文</button>
-    <button id="enBtn">English</button>
-    <p id="content">這是一段<span class="boldText">中文</span>內容。</p>
+  <div class="container">
+    <img id="imageElement" src="./images/SkaterBoi/arrow_1.png" alt="Image">
+  </div>
+  <script>
+    const imageElement = document.getElementById('imageElement');
+    let isImage = true;
 
-    <script>
-        const contentElement = document.getElementById('content');
-        const zhButton = document.getElementById('zhBtn');
-        const enButton = document.getElementById('enBtn');
+    document.addEventListener('click', () => {
+      if (isImage) {
+        imageElement.src = './images/SkaterBoi/arrow_flip.gif';
+        isImage = false;
 
-        // 异步加载 JSON 数据
-        fetch("./content.json")
-            .then(response => response.json())
-            .then(langData => {
-                const updateContent = language => {
-                    contentElement.innerHTML = langData[language].text;
-                };
+        setTimeout(() => {
+          imageElement.src = './images/SkaterBoi/arrow_1.png';
+          isImage = true;
+        }, 900); // 900 毫秒後切換回 PNG
+      }
+    });
 
-                zhButton.addEventListener('click', () => {
-                    updateContent('zh');
-                });
+    document.addEventListener('mousemove', (event) => {
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
 
-                enButton.addEventListener('click', () => {
-                    updateContent('en');
-                });
-
-                // 初始内容为英文
-                updateContent('zh');
-            })
-            .catch(error => {
-                console.error('Error fetching JSON data:', error);
-            });
-    </script>
+      imageElement.style.left = mouseX + 'px';
+      imageElement.style.top = mouseY + 'px';
+    });
+  </script>
 </body>
 </html>

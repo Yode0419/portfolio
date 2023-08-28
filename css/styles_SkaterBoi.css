@@ -11,14 +11,7 @@ html {
 }
 
 body {
-    /*
-
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-*/
-
-    background-color: #FDFAEC;
+/*    background-color: #FDFAEC;*/
     background-image: radial-gradient(rgba(187, 187, 187, 0.5) 0.9px, transparent 0.9px), radial-gradient(rgba(187, 187, 187, 0.5) 0.9px, #fffdf7 0.9px);
     background-size: 36px 36px;
     background-position: 0 0, 18px 18px;
@@ -433,6 +426,26 @@ li a img {
 
 
 
+
+
+
+/*Follower*/
+.follower {
+    position: fixed;
+    pointer-events: none; /* 防止图像干扰鼠标事件 */
+    z-index: 100;
+}
+
+
+
+
+
+
+
+
+
+
+
 /*每個SECTION最左邊的bar*/
 .section1 .container-md {
     /*    border-left: 10px solid #008250;*/
@@ -699,7 +712,9 @@ margin-bottom: 0.5rem;
 }
 
 
-
+.section6 .section6Row2 img{
+    max-width: 100%;
+}
 
 
 
@@ -741,10 +756,16 @@ margin-bottom: 0.5rem;
 }
 
 .otherProjectCardImage {
-    /*    background-color: blue;*/
+/*        background-color: blue;*/
     width: 30%;
     height: 100%;
     margin-right: 1rem;
+    display: flex;
+}
+
+.otherProjectCardImage img {
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .otherProjectCardText {
