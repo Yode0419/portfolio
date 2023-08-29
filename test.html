@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mouse Follow Image</title>
-  <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Follow Image</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
 
-    .container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
-    
-    #imageElement {
-      position: fixed;
-      width: 200px; /* 調整圖片大小 */
-      height: auto;
-    }
-  </style>
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #imageElement {
+            position: fixed;
+            width: 200px;
+            /* 調整圖片大小 */
+            height: auto;
+        }
+
+    </style>    
 </head>
+
 <body>
-  <div class="container">
-    <img id="imageElement" src="./images/SkaterBoi/arrow_1.png" alt="Image">
-  </div>
-  <script>
-    const imageElement = document.getElementById('imageElement');
-    let isImage = true;
 
-    document.addEventListener('click', () => {
-      if (isImage) {
-        imageElement.src = './images/SkaterBoi/arrow_flip.gif';
-        isImage = false;
+    由 &lt;a href=&quot;//commons.wikimedia.org/w/index.php?title=User:Wpcpey&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wpcpey (page does not exist)&quot;&gt;Wpcpey&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;zh-tw&quot;&gt;自己的作品&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=85919722">連結</a>
+    <div class="container">
+        <img id="imageElement" src="./images/SkaterBoi/arrow_1.png" alt="Image">
+    </div>
+    <script>
+        const imageElement = document.getElementById('imageElement');
+        let isImage = true;
 
-        setTimeout(() => {
-          imageElement.src = './images/SkaterBoi/arrow_1.png';
-          isImage = true;
-        }, 900); // 900 毫秒後切換回 PNG
-      }
-    });
+        document.addEventListener('click', () => {
+            if (isImage) {
+                imageElement.src = './images/SkaterBoi/arrow_flip.gif';
+                isImage = false;
 
-    document.addEventListener('mousemove', (event) => {
-      const mouseX = event.clientX;
-      const mouseY = event.clientY;
+                setTimeout(() => {
+                    imageElement.src = './images/SkaterBoi/arrow_1.png';
+                    isImage = true;
+                }, 900); // 900 毫秒後切換回 PNG
+            }
+        });
 
-      imageElement.style.left = mouseX + 'px';
-      imageElement.style.top = mouseY + 'px';
-    });
-  </script>
+        document.addEventListener('mousemove', (event) => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            imageElement.style.left = mouseX + 'px';
+            imageElement.style.top = mouseY + 'px';
+        });
+
+    </script>
 </body>
+
 </html>
