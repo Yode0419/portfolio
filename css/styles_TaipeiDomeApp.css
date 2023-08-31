@@ -142,7 +142,7 @@ li a img {
 }
 
 .divider {
-    height: 7rem;
+    height: 4rem;
     width: auto;
 }
 
@@ -445,21 +445,361 @@ li a img {
 
 
 
-.section2 p{
+.firstP {
     text-align: center;
 }
 
-.section2 .roleListArea {
-/*    background-color: brown;*/
+.section2 .listArea,
+.section4 .listArea {
+    /*    background-color: brown;*/
     display: flex;
     justify-content: center;
 }
 
 
+.section3 {
+    height: auto;
+    width: 100vw;
+    background-color: #14A9E2;
+    background-image: url(../images/TaipeiDomeApp/scene_banner.jpg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+
+.section3 .lineAll {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*    background-color: antiquewhite;*/
+}
+
+.section3 .line1,
+.section3 .line2 {
+    text-align: center;
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    line-height: 150%;
+    margin: 3rem 0;
+    padding: 1.5 1rem;
+    /*    background-color: brown;*/
+}
+
+.section3 .line1 {
+    margin-bottom: 0;
+}
+
+.section3 .line2 {
+    margin-top: 1.5rem;
+}
+
+
+.section5 .designProcessArea {
+    margin: 2rem 0rem;
+    height: auto;
+    /*    background-color: antiquewhite;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section5 a {
+    width: 20%;
+    margin: 1rem;
+}
+
+.section5 .designProcessCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 6rem;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    border-radius: 16px;
+    background-color: white;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
+    transition: 0.3s ease;
+}
+
+.section5 .designProcessCard h2,
+.section5 .designProcessCard p {
+    text-align: center;
+    margin-bottom: 0rem;
+}
+
+.section5 .designProcessCard:hover {
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.section5 .designProcessArrowDown {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .section5 .designProcessArea {
+        flex-direction: column;
+    }
+
+    .section5 a {
+        width: 50%;
+    }
+
+    .section5 .designProcessArrowRight {
+        display: none;
+    }
+
+    .section5 .designProcessArrowDown {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .section5 .designProcessCard {
+        height: 4rem;
+    }
+
+    .section5 .designProcessArea {
+        margin: 0;
+    }
+}
+
+
+
+.section6 h2 {
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+.section6 .note {
+    color: #1F2123;
+}
+
+.personaCol1,
+.personaCol2,
+.personaCol3 {
+    /*    background-color: antiquewhite;*/
+    height: auto;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.personaCol1 img {
+    object-fit: contain;
+    width: 200px;
+    margin-bottom: 2rem;
+    /*    height: 8rem;*/
+}
+
+
+.personaCol3 .goalAndChallenge {
+    /*    background-color: brown;*/
+    width: 90%;
+    margin-bottom: 2rem;
+}
+
+.personaCol3 .goalAndChallenge:last-child {
+    margin-bottom: 1rem;
+}
+
+
+@media (max-width: 992px) {
+    .personaCol3 .goalAndChallenge {
+        width: 70%;
+    }
+}
+
+@media (max-width: 576px) {
+    .personaCol3 .goalAndChallenge {
+        width: 90%;
+    }
+}
+
+
+.section6 .storyBoard {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.section6 .storyBoard a {
+    width: 60%;
+}
+
+.section6 .storyBoard a img {
+    max-width: 100%;
+}
+
+@media (max-width: 992px) {
+    .section6 .storyBoard a {
+        width: 90%;
+    }
+}
+
+
+
+.section7 .painPointCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.section7 .painPointCard h2 {
+    margin-bottom: 0.5rem;
+}
+
+.section7 .painPointCard .painPointNum {
+    min-width: 40px;
+    height: 40px;
+    margin: 0.5rem 1rem;
+    border-radius: 25px;
+    background-color: #007CB6;
+    font-size: 1.25rem;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@media(max-width: 576px) {
+    .section7 .painPointCard.painPointNum {
+        min-width: 32px;
+        height: 32px;
+        margin-left: 0;
+        font-size: 1em;
+    }
+}
+
+
+.section8 .wireframe {
+    padding: 0.5rem;
+}
+
+.section8 a img {
+    max-width: 100%;
+}
+
+
+.section8 .wireframeDescriptionText {
+    margin-bottom: 0.5rem;
+}
+
+.section8 li {
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+}
+
+.section8 li:before {
+    content: "";
+}
 
 
 
 
+
+
+.section9 h2 {
+    text-align: center;
+}
+
+.section9 .featureCard {
+    background-color: #F6F6F6;
+    height: 4rem;
+    margin: 0.5rem 0.25rem;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    border-radius: 16px;
+}
+
+.section9 .featureCard p {
+    margin-bottom: 0;
+}
+
+.section9 .findingArea {
+    display: flex;
+    align-items: center;
+}
+
+.section9 .findingArea .findingCircle {
+    min-width: 90px;
+    height: 90px;
+    margin: 0.5rem 1rem;
+    border-radius: 50px;
+    background-color: #14A9E2;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section9 .findingArea .findingText p {
+    margin-bottom: 0;
+}
+
+.section9 .iterationImg {
+    padding: 1rem 1rem 4rem 1rem;
+}
+
+.section9 .iterationImg img {
+    max-width: 100%;
+}
+
+.section10 .visualDesignText {
+    padding: 0 2rem;
+}
+
+.section10 .visualDesignImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section10 .visualDesignImg img {
+    max-width: 100%;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
+    margin-bottom: 4rem;
+}
+
+.section10 .userFlowNum {
+    margin-bottom: 0.5rem;
+}
+
+.section10 .userFlowImg img {
+    max-width: 100%;
+    margin-bottom: 4rem;
+}
+
+
+.section10 .iframeArea {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+
+.section10 iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width:768px) {
+    .section10 iframe {
+        width: 80%;
+    }
+}
 
 
 
@@ -477,6 +817,10 @@ li a img {
     border-top: 1px solid #AAA;
     padding: 2rem 0rem;
     /*    background-color: antiquewhite;*/
+}
+
+.otherProject h2{
+    color: #1F2123;
 }
 
 .otherProjectText {
