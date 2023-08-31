@@ -803,6 +803,69 @@ li a img {
 
 
 
+.section13 {
+    height: auto;
+    width: 100vw;
+    background-color: #14A9E2;
+}
+
+.section13 .lineAll {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*    background-color: antiquewhite;*/
+}
+
+.section13 .line1,
+.section13 .line2 {
+    text-align: center;
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    line-height: 150%;
+    margin: 2rem 0;
+    padding: 1.5 1rem;
+    /*    background-color: brown;*/
+}
+
+.section13 .line2 {
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.section13 a {
+    color: white;
+}
+
+
+.section13 .line1 {
+    margin-bottom: 0;
+}
+
+.section13 .line2 {
+    margin-top: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -819,7 +882,7 @@ li a img {
     /*    background-color: antiquewhite;*/
 }
 
-.otherProject h2{
+.otherProject h2 {
     color: #1F2123;
 }
 
