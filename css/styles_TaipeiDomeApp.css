@@ -384,6 +384,17 @@ li a img {
     /*    object-fit: contain;*/
 }
 
+.heroPhotoRef{
+    font-size: 0.5rem;
+/*    background-color: brown;*/
+    position: absolute;
+    right: 5px;
+    top: calc(30vh - 1.25rem);
+    color:white;
+}
+
+
+
 
 .section0 .heroTitle {
     color: #14A9E2;
@@ -434,7 +445,14 @@ li a img {
     .heroDetail2 {
         font-size: 1.125rem;
     }
+    
+    .heroPhotoRef {
+    font-size: 0.5rem;
+    }
 }
+
+
+
 
 
 
