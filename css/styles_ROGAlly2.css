@@ -30,18 +30,6 @@ h1 {
     /*    border: 1px solid red;*/
 }
 
-h1::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    height: 100%;
-    width: calc(100% + 8rem);
-    top: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-bottom: 0.15rem solid #14A9E2;
-}
-
 
 h2 {
     color: #007CB6;
