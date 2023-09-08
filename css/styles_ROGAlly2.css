@@ -21,17 +21,14 @@ a {
 }
 
 h1 {
-    color: #14A9E2;
+    color: #1F2124;
     font-size: 1.75rem;
     font-weight: 600;
     letter-spacing: 0.02rem;
     line-height: 150%;
     margin-bottom: 1.25rem;
     padding: 0 1rem;
-    display: inline-block;
-    position: relative;
-    background-color: white;
-    /*    border: 1px solid red;*/
+    /*        border: 1px solid red;*/
 }
 
 
@@ -368,6 +365,66 @@ li a img {
 }
 
 
+.hero {
+    /*    background-color: antiquewhite;*/
+    height: 800px;
+    margin-bottom: 8rem;
+    position: relative;
+    /*    margin-bottom: 2rem;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .heroBackground {
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero .heroContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+/*    border: 1px solid black;*/
+    /*    top: 55vh;*/
+}
+
+.hero .heroContent .heroImage {
+    width: 600px;
+    max-width: 80%;
+/*    margin-bottom: 2rem;*/
+/*    border: 1px solid black;*/
+}
+
+.hero .heroContent .heroLogo {
+    width: 500px;
+    max-width: 80%;
+    margin-bottom: 2rem;
+/*    border: 1px solid black;*/
+}
+
+
+.hero .heroContent h1,
+.hero .heroContent h2,
+.hero .heroContent p {
+    margin-bottom: 0.25rem;
+}
+
+
+
+
+
+
+
+
+
 
 
 .handheldConsole img {
@@ -394,7 +451,7 @@ li a img {
     width: 3rem;
     height: 3rem;
     position: relative;
-/*    background-color: brown;*/
+    /*    background-color: brown;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -424,7 +481,7 @@ li a img {
 }
 
 .painPointText {
-/*    background-color: bisque;*/
+    /*    background-color: bisque;*/
 }
 
 .painPointText h2 {
