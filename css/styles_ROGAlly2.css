@@ -392,22 +392,22 @@ li a img {
     justify-content: center;
     align-items: center;
     width: 100%;
-/*    border: 1px solid black;*/
+    /*    border: 1px solid black;*/
     /*    top: 55vh;*/
 }
 
 .hero .heroContent .heroImage {
     width: 600px;
     max-width: 80%;
-/*    margin-bottom: 2rem;*/
-/*    border: 1px solid black;*/
+    /*    margin-bottom: 2rem;*/
+    /*    border: 1px solid black;*/
 }
 
 .hero .heroContent .heroLogo {
     width: 500px;
     max-width: 80%;
     margin-bottom: 2rem;
-/*    border: 1px solid black;*/
+    /*    border: 1px solid black;*/
 }
 
 
@@ -496,17 +496,83 @@ li a img {
 
 
 .painPointPicture {
-    border: 1px solid black;
+    /*    border: 1px solid black;*/
+}
+
+.painPointPicture img {
+    width: 100%;
     margin-bottom: 3rem;
+    border-radius: 5px;
+}
+
+
+
+.designSolutionTitle {
+    color: #6A6A6A;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    line-height: 150%;
+    margin-bottom: 1rem;
+    /*    background-color: brown;*/
+    text-align: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.designSolutionTitle::before {
+    content: "";
+    height: 8px;
+    width: 200px;
+    background: linear-gradient(270deg, #0FF 0%, rgba(217, 217, 217, 0.00) 100%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-105%);
+}
+
+.designSolutionTitle::after {
+    content: "";
+    height: 8px;
+    width: 200px;
+    background: linear-gradient(90deg, #EB00FF 0%, rgba(217, 217, 217, 0.00) 100%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(5%);
+}
+
+
+.designSolutionImage img {
+    /*    background-color: brown;*/
+    border: 1px solid black;
+    width: 100%;
+    height: auto;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 992px) {
+    .designSolutionImage img {
+        margin-bottom: 0.5rem;
+    }
+
+    .designSolutionText {
+        /*    background-color: brown;*/
+        margin-bottom: 3rem;
+    }
 }
 
 
 
 
 
+.conceptImage img {
+    width: 100%;
+    margin-bottom: 1rem;
+}
 
-
-
+.endingImage img {
+    width: 100%;
+    margin-bottom: 3rem;
+}
 
 
 
