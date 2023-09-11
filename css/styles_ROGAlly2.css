@@ -52,11 +52,19 @@ p {
 
 /*span粗體使用*/
 .pBold {
-    color: #2cbfbf;
-/*    font-size: 1.25rem;*/
+    /*    color: #2cbfbf;*/
+    /*    font-size: 1.25rem;*/
     font-weight: 700;
     line-height: 150%;
     margin-bottom: 1rem;
+}
+
+.pBoldCyan {
+    color: #2cbfbf;
+}
+
+.pBoldMagenta {
+    color: #EB04FF;
 }
 
 .note {
@@ -500,7 +508,7 @@ li a img {
 .painPointPicture img {
     width: 100%;
     margin-bottom: 3rem;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 
@@ -545,6 +553,7 @@ li a img {
     width: 100%;
     height: auto;
     margin-bottom: 3rem;
+    border-radius: 8px;
 }
 
 @media (max-width: 992px) {
