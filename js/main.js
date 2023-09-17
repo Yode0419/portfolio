@@ -49,16 +49,24 @@ fetch("./js/language.json")
         const langZhBtn = document.getElementById("langZh");
         const langEnBtn = document.getElementById("langEn");
 
+        // 履歷按鈕
+        const resumeBtnZh = document.getElementById('resumeBtnZh');
+        const resumeBtnEn = document.getElementById('resumeBtnEn');
+
         langZhBtn.addEventListener("click", function (event) {
             event.preventDefault(); // 阻止點擊事件的預設行為
             currentLanguage = "zh";
             updatePageLanguage(langData, currentLanguage);
+            resumeBtnZh.style.display = 'inline-block';
+            resumeBtnEn.style.display = 'none';
         });
 
         langEnBtn.addEventListener("click", function (event) {
             event.preventDefault(); // 阻止點擊事件的預設行為
             currentLanguage = "en";
             updatePageLanguage(langData, currentLanguage);
+            resumeBtnZh.style.display = 'none';
+            resumeBtnEn.style.display = 'inline-block';
         });
 
 
@@ -116,7 +124,7 @@ navContactBtn.addEventListener('click', function (event) {
     event.preventDefault(); // 防止點擊時的默認行為
     sections.forEach(section => section.style.opacity = 0); // 隱藏所有 section
     welcomePage.style.opacity = 0; //隱藏 welcomePage
-    
+
     setTimeout(() => {
         window.location.href = '#section3'; // 跳轉到目標 section
         sections.forEach(section => section.style.opacity = 1); // 顯示所有 section

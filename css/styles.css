@@ -449,8 +449,8 @@ body {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-/*    width: 100%;*/
-/*    background-color: brown;*/
+    /*    width: 100%;*/
+    /*    background-color: brown;*/
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -793,6 +793,13 @@ body {
 .section2 .resume:hover {
     background-color: #2d83b1;
 }
+
+.section2 .resumeEn {
+    display: none;
+}
+
+
+
 
 /*ABOUT ME--END--*/
 
