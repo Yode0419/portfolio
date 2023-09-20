@@ -24,7 +24,8 @@ const camera = new THREE.PerspectiveCamera(
 
 // 設定相機的位置
 camera.position.set(4, 1, 8);
-camera.lookAt(0, 2, 0);
+const lookAtTarget = new THREE.Vector3(0, 2, 0);
+camera.lookAt(lookAtTarget);
 
 // 選定渲染器
 const renderer = new THREE.WebGLRenderer({
@@ -44,8 +45,15 @@ renderer.setSize(container.clientWidth, container.clientHeight);
 container.appendChild(renderer.domElement);
 
 //// 設定軌道控制器，讓相機可以環繞觀察場景
-//const controls = new OrbitControls(camera, renderer.domElement);
-//controls.update();
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableZoom = false;
+controls.enablePan = false;
+controls.target.set(0,2,0);
+controls.update();
+
+controls.addEventListener('change', () => {
+    camera.lookAt(lookAtTarget);
+});
 
 // 產生平面物體
 const planeGeometry = new THREE.PlaneGeometry(10, 10);
@@ -103,6 +111,7 @@ scene.add(directionalLight);
 const ambientLight = new THREE.AmbientLight(0x333333, 3);
 scene.add(ambientLight);
 
+
 // 設定動畫
 function animate() {
     // 循環觸發渲染以產生動畫
@@ -113,7 +122,7 @@ function animate() {
         mixer.update(clock.getDelta());
     }
 
-
+//    controls.update();
     renderer.render(scene, camera);
 }
 
