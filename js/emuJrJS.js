@@ -8,7 +8,12 @@ import {
 } from 'three/addons/loaders/GLTFLoader.js';
 
 let container = document.querySelector('.container3D');
-//container.height = 3 * container.width;
+const spinBtn = document.getElementById('spinBtn');
+const spinIcon = document.getElementById('spinIcon');
+const blocker = document.getElementById('blocker');
+
+let isRotating = false;
+
 
 let emu, mixer, emuRun, clock = new THREE.Clock();
 // 產生一個場景
@@ -48,7 +53,8 @@ container.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableZoom = false;
 controls.enablePan = false;
-controls.target.set(0,2,0);
+controls.enableRotate = false;
+controls.target.set(0, 2, 0);
 controls.update();
 
 controls.addEventListener('change', () => {
@@ -112,6 +118,36 @@ const ambientLight = new THREE.AmbientLight(0x333333, 3);
 scene.add(ambientLight);
 
 
+// 添加事件監聽器
+spinBtn.addEventListener('click', () => {
+    isRotating = !isRotating; // 切换旋转状态
+
+    // 遮蓋blocker
+    if (isRotating) {
+        blocker.style.display = 'none';
+    } else {
+        blocker.style.display = 'block';
+    }
+    
+    // 根据旋转状态切换按钮图像和启用/禁用模型旋转和相机拖拽
+    if (isRotating) {
+        spinIcon.src = '../images/EmuJr/spinOff.png'; // 切换成spinOff.png
+    } else {
+        spinIcon.src = '../images/EmuJr/spinOn.png'; // 切换回spinOn.png
+    }
+
+    // 启用/禁用模型旋转和相机拖拽
+    if (isRotating) {
+        // 允许模型旋转和相机拖拽
+        controls.enableRotate = true;
+    } else {
+        // 停止模型旋转和禁用相机拖拽
+        controls.enableRotate = false;
+    }
+    
+});
+
+
 // 設定動畫
 function animate() {
     // 循環觸發渲染以產生動畫
@@ -120,9 +156,11 @@ function animate() {
     // 設定EMU跑步動畫
     if (mixer) {
         mixer.update(clock.getDelta());
+        // 模型旋轉
+        if (isRotating) {
+            emu.rotation.y -= 0.003;
+        }
     }
-
-//    controls.update();
     renderer.render(scene, camera);
 }
 
